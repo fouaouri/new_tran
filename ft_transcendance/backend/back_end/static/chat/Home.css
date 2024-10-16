@@ -1,0 +1,273 @@
+body, html {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    width: 100%;
+    font-family: Arial, sans-serif;
+}
+
+.bg-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    width: 100%;
+    background-image: url('/assets/images/new_backround.jpg'); /* Path to your image */
+    background-size: cover; /* Ensure the image covers the whole area */
+    background-position: center; /* Center the image */
+    background-repeat: no-repeat;
+    filter: blur(15px);
+    /* position: relative; Ensure proper stacking context */
+}
+
+.gif-ping {
+    position: absolute;
+    top: 15%;
+    right: 10%;
+    width: 22.65%;
+    height: 40.27%;
+    background-image: url('/assets/images/giphy.gif');
+    border-radius: 50%;
+    background-size: cover; /* Ensure the image covers the whole area */
+    background-position: center; /* Center the image */
+    background-repeat: no-repeat;
+    background-color: rgba(73, 103, 81, 0.3);
+    animation: none;
+    /* filter: blur(15px); */
+
+}
+
+.logo {
+    position: absolute;
+    top: 2%;
+    left: 45.7%;
+    width: 150px; /* Adjust the size as needed */
+    height: auto; /* Maintain the aspect ratio */
+}
+
+.dynamic-h1 {
+    position: absolute;
+    overflow: hidden;
+    white-space: nowrap;
+    font-family: "Poppins", serif;
+    font-size: 300%;
+    top: 20%;
+    left: 7%;
+    color: #ffffff;
+    text-shadow: 0 0 10px rgba(0, 255, 0, 0.90);
+    transition: all 0.5s ease;
+}
+
+.dynamic-h2 {
+    position: absolute;
+    overflow: hidden;
+    white-space: nowrap;
+    font-family: "Poppins", serif;
+    font-size: 90%;
+    bottom: 30%;
+    left: 7%;
+    color: #ffffff;
+    /* text-shadow: 0 0 10px rgba(0, 255, 0, 0.90); */
+
+}
+
+.button-container {
+    position: absolute;
+    top: 74%;
+    left: 7%;
+}
+
+.button-container button {
+    font-family: "Poppins", serif;
+    font-weight: 200;
+    font-style: normal;
+    font-size: 250%;
+    color: #ffffff;
+    background-color: rgba(15, 157, 53, 0.6);
+    box-shadow: 0 0 10px rgba(0, 255, 0, 0.90);
+    text-shadow: 0 0 20px rgba(3, 63, 3, 0.9);
+    border-radius: 10px;
+}
+
+.button-Profile {
+    position: absolute;
+    top: 5%;
+    left: 17%;
+}
+
+.button-Game {
+    position: absolute;
+    top: 5%;
+    left: 30%;
+}
+
+.button-Tournoi {
+    position: absolute;
+    top: 5%;
+    right: 30%;
+}
+
+.button-Chat {
+    position: absolute;
+    top: 5%;
+    right: 20%;
+}
+
+.button-Settings {
+    position: absolute;
+    top: 5%;
+    right: 7%;
+}
+
+button {
+    font-family: "Bebas Neue", serif;
+    font-weight: 100;
+    font-style: normal;
+    font-size: 250%;
+    color: #ffffff;
+    text-align: center;
+    background: none;
+    border: none;
+}
+
+.button-Home button {
+    position: absolute;
+    top: 5%;
+    left: 7%;
+    font-family: "Bebas Neue", serif;
+    font-weight: 100;
+    font-style: normal;
+    font-size: 300%;
+    color: #26D10A;
+    text-align: center;
+    background: none;
+    border: none;
+}
+
+@media (max-width : 1400px){    
+    .logo {
+        position: absolute;
+        top: 2%;
+        left: 45%;
+        width: 12%;
+        height: auto;
+    }
+    
+    .gif-ping {
+        position: absolute;
+        height: 30%;
+        width: 25%;
+        top: 20%;
+        right: 10%;
+        background-image: url('/assets/images/giphy.gif');
+        border-radius: 50%;
+        background-size: cover; /* Ensure the image covers the whole area */
+        background-position: center; /* Center the image */
+        background-repeat: no-repeat;
+        background-color: rgba(73, 103, 81, 0.3);
+
+        animation: none;
+    
+    }
+
+    .dynamic-h1 {
+        position: absolute;
+        overflow: hidden;
+        white-space: nowrap;
+        font-family: "Poppins", serif;
+        font-size: 250%;
+        top: 20%;
+        left: 7%;
+        color: #ffffff;
+        text-shadow: 0 0 10px rgba(0, 255, 0, 0.90);
+        transition: all 0.5s ease;
+    }
+    
+    .dynamic-h2 {
+        position: absolute;
+        overflow: hidden;
+        white-space: nowrap;
+        font-family: "Poppins", serif;
+        font-size: 80%;
+        bottom: 40%;
+        left: 7%;
+        color: #ffffff;
+        /* text-shadow: 0 0 10px rgba(0, 255, 0, 0.90); */
+    
+    }
+
+
+    
+    .button-container {
+        position: absolute;
+        top: 70%;
+        left: 7%;
+    }
+    
+    .button-container button {
+        font-family: "Bebas Neue", serif;
+        font-weight: 100;
+        font-style: normal;
+        font-size: 200%;
+        color: #ffffff;
+        background-color: rgba(15, 157, 53, 0.6);
+        box-shadow: 0 0 10px rgba(0, 255, 0, 0.90);
+        border-radius: 10px;
+    }
+    
+    .button-Profile {
+        position: absolute;
+        top: 5%;
+        left: 17%;
+    }
+    
+    .button-Game {
+        position: absolute;
+        top: 5%;
+        left: 30%;
+    }
+    
+    .button-Tournoi {
+        position: absolute;
+        top: 5%;
+        right: 30%;
+    }
+    
+    .button-Chat {
+        position: absolute;
+        top: 5%;
+        right: 20%;
+    }
+    
+    .button-Settings {
+        position: absolute;
+        top: 5%;
+        right: 7%;
+    }
+    
+    button {
+        font-family: "Bebas Neue", serif;
+        font-weight: 100;
+        font-style: normal;
+        font-size: 200%;
+        color: #ffffff;
+        text-align: center;
+        background: none;
+        border: none;
+    }
+    
+    .button-Home button {
+        position: absolute;
+        top: 5%;
+        left: 7%;
+        font-family: "Bebas Neue", serif;
+        font-weight: 100;
+        font-style: normal;
+        font-size: 250%;
+        color: #26D10A;
+        text-align: center;
+        background: none;
+        border: none;
+    }
+
+}

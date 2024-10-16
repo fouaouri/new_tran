@@ -1,0 +1,45 @@
+in home.html this is how we print data (we named it item) that we gave its value in views.py
+________________________________________________________________________
+|   <!DOCTYPE html>
+|   <html>
+|   <head>
+|       <title>My Page</title>
+|   </head>
+|   <body>
+|       <h1>Data from Backend</h1>
+|       <ul>
+|       {% for item in data %}
+|           <li>{{ item }}</li>
+|       {% endfor %}
+|       </ul>
+|   </body>
+|   </html>
+|________________________________________________________________________
+
+
+this is our views.py
+________________________________________________________________________
+|   from django.shortcuts import render
+|   from django.http import JsonResponse
+|   
+|   def homepage(request):
+|       data = { 
+|           'name': 'Ferdaous',
+|           'age': 20,
+|           'city': 'Marrakech'
+|   
+|       }
+|       return render(request, 'home.html', context={'data': data})
+|       # return render(request, 'home.html', context=data)
+|________________________________________________________________________
+
+
+--> REST API endpoints
+ ___________________________________
+|Authorization Code (Callback Code) |
+|___________________________________|
+   -> What It Is: The authorization code is a temporary code that the authorization server (e.g., 42 Intra) sends back to your application after the user successfully authorizes your app.
+
+   -> Purpose: Its main purpose is to securely exchange it for an access token. It is short-lived and exists only to provide a secure way for your app to obtain an access token.
+   -> rest api / api
+_____________________________________

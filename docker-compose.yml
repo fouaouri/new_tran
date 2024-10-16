@@ -1,0 +1,59 @@
+version: '3.8'
+
+services:
+
+  backend:
+    image: 'backend'
+    build: 'ft_transcendance/backend'
+    container_name: 'backend'
+    restart: 'always'
+    volumes:
+      - ./ft_transcendance:/app
+    ports:
+      - 8000:8000
+    networks:
+      - ft_transcendance
+
+  frontend:
+    image: 'frontend'
+    build: 'ft_transcendance/frontend'
+    container_name: 'frontend'
+    restart: 'always'
+    volumes:
+      - ./ft_transcendance:/app
+    ports:
+      - 8080:8080
+    networks:
+      - ft_transcendance
+
+
+networks:
+  ft_transcendance:
+    name: ft_transcendance
+    driver_opts:
+      type: bridge
+
+    # depends_on:
+    #   - postgres
+    # networks:
+    #   - ft_transcendance
+
+
+
+  # postgres:
+  #   image: postgres
+  #   # image: postgres:15
+  #   volumes:
+  #     - ./ft_transcendance/postgres:/var/lib/postgresql/data
+  #   container_name: 'postgres'
+  #   networks:
+  #     - ft_transcendance
+  #   restart: always
+  #   # command: 'tail -f'
+  #   build: './ft_transcendance/postgres'
+  #   environment:
+  #     POSTGRES_DB: postgres
+  #     POSTGRES_USER: admin
+  #     POSTGRES_PASSWORD: '123'
+  #   ports: 
+  #     - "5432:5432"

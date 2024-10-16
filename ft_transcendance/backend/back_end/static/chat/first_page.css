@@ -1,0 +1,174 @@
+body, html {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    width: 100%;
+    font-family: Arial, sans-serif;
+}
+
+.bg-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    width: 100%;
+    background-image: url('new_backround.jpg');
+    background-size: cover; /* Ensure the image covers the whole area */
+    background-position: center; /* Center the image */
+    background-repeat: no-repeat;
+    filter: blur(10px);
+    /* position: relative; Ensure proper stacking context */
+}
+
+.Text-container  h2 {
+    position: absolute;
+    font-family: "Poppins", serif;
+    font-size: 250%;
+    top: 37%;
+    left: 40%;
+    color: rgb(255, 255, 255);
+}
+
+.Textt-container  h2 {
+    position: absolute;
+    font-family: "Poppins", serif;
+    font-size: 150%;
+    bottom: 28%;
+    left: 43%;
+    color: rgb(255, 255, 255);
+}
+
+.rectangle {
+    position: absolute;
+    bottom: 12%;
+    right: 35.15%;
+    width: 29.68%; /* Width of the rectangle */
+    height: 53.88%; /* Height of the rectangle */
+    background-color: rgba(157, 161, 158, 0.25);
+    /* border: 2px solid #000; */
+    /* box-shadow: 0 0 20px rgba(0, 255, 0, 0.90); */
+    border-radius: 40px;
+}
+
+
+.logo {
+    position: absolute;
+    top: 9%;
+    right: 41%;
+    width: 350px; /* Adjust the size as needed */
+    height: auto; /* Maintain the aspect ratio */
+}
+
+.Email-rectangle {
+    position: absolute;
+    top: 47%;
+    left: 42%;
+    width: 16.04%;
+    height: 4.62%;
+    background-color: rgba(19, 131, 47, 0.75);
+    border-radius: 10px;
+}
+
+.button-Email {
+    position: absolute;
+    bottom: 47.5%;
+    left: 43%;
+}
+
+.button-Email h2 {
+    font-family: "Poppins", serif;
+    /* font-style: normal; */
+    font-size: 140%;
+    color: rgb(255, 255, 255);
+}
+
+.Password-rectangle {
+    position: absolute;
+    top: 54%;
+    left: 42%;
+    width: 16.04%;
+    height: 4.62%;
+    background-color: rgba(19, 131, 47, 0.75);
+    border-radius: 10px;
+}
+
+.button-Password {
+    position: absolute;
+    bottom: 40.7%;
+    left: 43%;
+}
+
+.button-Password h2 {
+    font-family: "Poppins", serif;
+    /* font-style: normal; */
+    font-size: 140%;
+    color: rgb(255, 255, 255);
+}
+
+.Signin-rectangle {
+    position: absolute;
+    top: 62%;
+    left: 47.59%;
+    width: 4.62%;
+    height: 3.28%;
+    background-color: rgba(19, 131, 47, 0.75);
+    border-radius: 20px;
+}
+
+.button-Signin {
+    position: absolute;
+    bottom: 33.5%;
+    left: 48.2%;
+}
+
+.button-Signin h2 {
+    font-family: "Poppins", serif;
+    /* font-style: normal; */
+    font-size: 140%;
+    color: rgb(255, 255, 255);
+}
+
+.button-Github {
+    position: absolute;
+    bottom: 14%;
+    left: 39.5%;
+}
+
+.button-Github button {
+    width: 400px;
+    height: 60px;
+    font-family: "Poppins", serif;
+    font-weight: 100;
+    font-style: normal;
+    font-size: 180%;
+    /* color: #a0ee7f; */
+    text-align: center;
+    background-color: rgba(151, 203, 209, 0.5);
+    text-shadow: 0 0 10px rgb(255, 255, 255);
+    /* box-shadow: 0 0 20px rgba(0, 255, 0, 0.90); */
+    cursor: pointer;
+    border-radius: 20px;
+}
+
+.button-42 {
+    position: absolute;
+    bottom: 20%;
+    left: 39.5%;
+}
+
+.button-42 button {
+    /* padding: 3.23% 20.55%; */
+    width: 400px;
+    height: 60px;
+    font-family: "Poppins", serif;
+    font-weight: 100;
+    font-style: normal;
+    font-size: 180%;
+    /* color: #a0ee7f; */
+    text-align: center;
+    background-color: rgba(151, 203, 209, 0.5);
+    text-shadow: 0 0 10px rgb(255, 255, 255);
+    /* box-shadow: 0 0 20px rgba(0, 255, 0, 0.90); */
+    cursor: pointer;
+    border-radius: 20px;
+}
