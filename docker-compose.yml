@@ -1,4 +1,4 @@
-version: '3.8'
+# version: '3.8'
 
 services:
 
@@ -8,24 +8,62 @@ services:
     container_name: 'backend'
     restart: 'always'
     volumes:
-      - ./ft_transcendance:/app
+      - ./ft_transcendance/backend:/app
     ports:
       - 8000:8000
     networks:
       - ft_transcendance
-
+    depends_on:
+      - frontend
+      - postgres
+    env_file:
+      - .env
   frontend:
     image: 'frontend'
     build: 'ft_transcendance/frontend'
     container_name: 'frontend'
     restart: 'always'
     volumes:
-      - ./ft_transcendance:/app
+      - ./ft_transcendance/frontend:/app
     ports:
       - 8080:8080
     networks:
       - ft_transcendance
 
+  chat:
+    image: 'chat'
+    container_name: 'chat'
+    build: 'ft_transcendance/chat'
+    volumes:
+      - ./ft_transcendance/chat:/chatco
+    ports:
+      - "8001:8001"
+    networks:
+      - ft_transcendance
+    depends_on:
+      - redis
+  redis:
+    image: redis:latest
+    container_name: 'redis'
+    ports:
+      - "6379:6379"
+    networks:
+      - ft_transcendance
+
+  postgres:
+    image: postgres:13
+    container_name: postgres
+    networks:
+      - ft_transcendance
+    restart: unless-stopped
+    ports: 
+      - "5432:5432"
+    environment:
+      - POSTGRES_DB=your_database_name
+      - POSTGRES_USER=your_database_user
+      - POSTGRES_PASSWORD=your_database_password
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
 
 networks:
   ft_transcendance:
@@ -33,27 +71,5 @@ networks:
     driver_opts:
       type: bridge
 
-    # depends_on:
-    #   - postgres
-    # networks:
-    #   - ft_transcendance
-
-
-
-  # postgres:
-  #   image: postgres
-  #   # image: postgres:15
-  #   volumes:
-  #     - ./ft_transcendance/postgres:/var/lib/postgresql/data
-  #   container_name: 'postgres'
-  #   networks:
-  #     - ft_transcendance
-  #   restart: always
-  #   # command: 'tail -f'
-  #   build: './ft_transcendance/postgres'
-  #   environment:
-  #     POSTGRES_DB: postgres
-  #     POSTGRES_USER: admin
-  #     POSTGRES_PASSWORD: '123'
-  #   ports: 
-  #     - "5432:5432"
+volumes:
+  postgres_data:

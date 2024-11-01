@@ -1,3 +1,5 @@
+
+
 body, html {
     margin: 0;
     padding: 0;
@@ -22,18 +24,23 @@ body, html {
 
 .gif-ping {
     position: absolute;
-    top: 15%;
+    top: 20%;
     right: 10%;
-    width: 22.65%;
-    height: 40.27%;
-    background-image: url('../assets/images/giphy.gif');
+    width: 30%;
+    height: 50%;
+    background-image: url(../assets/images/giphy.gif);
     border-radius: 50%;
-    background-size: cover; /* Ensure the image covers the whole area */
-    background-position: center; /* Center the image */
+    background-size: cover;
+    background-position: center;
     background-repeat: no-repeat;
-    background-color: rgba(73, 103, 81, 0.3);
+    background-color: #ffffff;
     animation: none;
     /* filter: blur(15px); */
+
+}
+@font-face {
+    font-family: 'HotdogsDemo';
+    src: url('../Fonts/hotdogsdemo.ttf') format('truetype');
 
 }
 
@@ -49,8 +56,8 @@ body, html {
     position: absolute;
     overflow: hidden;
     white-space: nowrap;
-    font-family: "Poppins", serif;
-    font-size: 300%;
+    font-family: 'HotdogsDemo', sans-serif;
+    font-size: 450%;
     top: 20%;
     left: 7%;
     color: #ffffff;
@@ -62,9 +69,9 @@ body, html {
     position: absolute;
     overflow: hidden;
     white-space: nowrap;
-    font-family: "Poppins", serif;
-    font-size: 90%;
-    bottom: 30%;
+    font-family: 'HotdogsDemo', sans-serif;
+    font-size: 130%;
+    bottom: 22%;
     left: 7%;
     color: #ffffff;
     /* text-shadow: 0 0 10px rgba(0, 255, 0, 0.90); */
@@ -73,12 +80,13 @@ body, html {
 
 .button-container {
     position: absolute;
-    top: 74%;
+    top: 82%;
     left: 7%;
+    font-size: 110%;
 }
 
 .button-container button {
-    font-family: "Poppins", serif;
+    font-family:  'HotdogsDemo', sans-serif;
     font-weight: 200;
     font-style: normal;
     font-size: 250%;
@@ -119,11 +127,12 @@ body, html {
     right: 7%;
 }
 
+
 button {
-    font-family: "Bebas Neue", serif;
+    font-family:  'HotdogsDemo', sans-serif;
     font-weight: 100;
     font-style: normal;
-    font-size: 250%;
+    font-size: 350%;
     color: #ffffff;
     text-align: center;
     background: none;
@@ -134,10 +143,10 @@ button {
     position: absolute;
     top: 5%;
     left: 7%;
-    font-family: "Bebas Neue", serif;
+    font-family:  'HotdogsDemo', sans-serif;
     font-weight: 100;
     font-style: normal;
-    font-size: 300%;
+    font-size: 450%;
     color: #26D10A;
     text-align: center;
     background: none;
@@ -174,7 +183,7 @@ button {
         position: absolute;
         overflow: hidden;
         white-space: nowrap;
-        font-family: "Poppins", serif;
+        font-family:  'HotdogsDemo', sans-serif;
         font-size: 250%;
         top: 20%;
         left: 7%;
@@ -187,7 +196,7 @@ button {
         position: absolute;
         overflow: hidden;
         white-space: nowrap;
-        font-family: "Poppins", serif;
+        font-family:  'HotdogsDemo', sans-serif;
         font-size: 80%;
         bottom: 40%;
         left: 7%;
@@ -205,7 +214,7 @@ button {
     }
     
     .button-container button {
-        font-family: "Bebas Neue", serif;
+        font-family: 'HotdogsDemo', serif;
         font-weight: 100;
         font-style: normal;
         font-size: 200%;
@@ -246,7 +255,7 @@ button {
     }
     
     button {
-        font-family: "Bebas Neue", serif;
+        font-family: 'HotdogsDemo', serif;
         font-weight: 100;
         font-style: normal;
         font-size: 200%;
@@ -260,7 +269,7 @@ button {
         position: absolute;
         top: 5%;
         left: 7%;
-        font-family: "Bebas Neue", serif;
+        font-family: 'HotdogsDemo', serif;
         font-weight: 100;
         font-style: normal;
         font-size: 250%;

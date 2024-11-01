@@ -20,6 +20,11 @@ body, html {
     /* position: relative; Ensure proper stacking context */
 }
 
+@font-face {
+    font-family: 'HotdogsDemo';
+    src: url('../Fonts/hotdogsdemo.ttf') format('truetype');
+
+}
 .logo {
     position: absolute;
     top: 2%;
@@ -30,7 +35,7 @@ body, html {
 
 .rectang h1 {
     position: absolute;
-    font-family: "Poppins", serif;
+    font-family: 'HotdogsDemo', serif;
     font-size: 700%;
     top: 15%;
     left: 12%;
@@ -41,7 +46,7 @@ body, html {
 
 .rectang h2 {
     position: absolute;
-    font-family: "Poppins", serif;
+    font-family: 'HotdogsDemo', serif;
     font-size: 200%;
     top: 37%;
     left: 12%;
@@ -111,7 +116,7 @@ body, html {
 
 .button-container button {
     padding: 1% 25%;
-    font-family: "Bebas Neue", serif;
+    font-family: 'HotdogsDemo', serif;
     font-weight: 300;
     font-style: normal;
     font-size: 300%;
@@ -152,7 +157,7 @@ body, html {
 }
 
 button {
-    font-family: "Bebas Neue", serif;
+    font-family: 'HotdogsDemo', serif;
     font-weight: 100;
     font-style: normal;
     font-size: 250%;
@@ -167,7 +172,7 @@ button {
     position: absolute;
     top: 5%;
     left: 30%;
-    font-family: "Bebas Neue", serif;
+    font-family: 'HotdogsDemo', serif;
     font-weight: 100;
     font-style: normal;
     font-size: 300%;

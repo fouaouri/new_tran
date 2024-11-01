@@ -30,13 +30,13 @@ function navigateTo(content, cssFile, path) {
 function HomeContent(){
     // loadCssFile('../Css/Home.css', 'homeContent');
     var typed = new Typed(".dynamic-h1", {
-        strings : ["A New Place <br> For Professional<br> Ping Pong <br> Gamers ."],
+        strings : ["A New Place <br> For Professional<br> Ping Pong <br> Gamers"],
         typeSpeed : 50,
         showCursor: false
     })
     
     var typed = new Typed(".dynamic-h2", {
-        strings : ["Experience the thrill of table tennis with our fast-paced Ping Pong Game! Master your skills, <br>compete with friends, and climb the leaderboards in this exciting arcade-style sports game."],
+        strings : ["Experience the thrill of table tennis with our fastpaced Ping Pong Game Master your skills <br>compete with friends and climb the leaderboards in this exciting arcadestyle sports game"],
         typeSpeed : 20,
         startDelay: 4200,
         showCursor: false
@@ -106,7 +106,16 @@ function LoadContent(templateId){
     dynamicContent.appendChild(templateContent);
     if(templateId === 'openningContent'){
         navigateTo('openningContent', '../Css/openning.css',  '/OpeningPage');
+
+
         document.getElementById('clickme').addEventListener('click', (e) => {
+        // console.log(666);
+
+        //// check if the user is alredy login 
+        
+                // sent request to the backend to check if the user is login or not 
+        
+        //the user is not login yet
             // loadCssFile('../Css/first_page.css', 'firstContent');
             LoadContent('firstContent');
             navigateTo('firstContent', '../Css/first_page.css',  '/LoginPage')
@@ -123,10 +132,10 @@ function LoadContent(templateId){
     if(templateId === 'EditContent')
         EditContent();
     if(templateId === 'firstContent'){
-        // console.log(666);
+        
         document.getElementById('intra42-login-btn').addEventListener('click', function() {
             // console.log(555);
-            const intra42LoginUrl = "https://api.intra.42.fr/oauth/authorize?client_id=u-s4t2ud-e5437d72a82b82ecee1a09bda3d32caf037304254c571cacb12bc31aed110266&redirect_uri=http%3A%2F%2Flocalhost%3A8000%2Faccounts%2F42intra%2Flogin%2Fcallback%2F&response_type=code";
+            const intra42LoginUrl = "https://api.intra.42.fr/oauth/authorize?client_id=u-s4t2ud-a0d438e24b0c9119435025d9a17ae929ed3e2c3be61964f9b3d0dffbd9d314c7&redirect_uri=http%3A%2F%2Flocalhost%3A8000%2Faccounts%2F42intra%2Flogin%2Fcallback%2F&response_type=code";
             window.location.href = intra42LoginUrl;
             templateId = 'dataContent';
         });
@@ -185,6 +194,85 @@ function checkWindowSize() {
 
 window.addEventListener('resize', checkWindowSize);
 
+// function saveUser(newUser) {
+//     let users = JSON.parse(localStorage.getItem('loggedInUsers')) || [];
+//     users.push(newUser);
+//     console.log("storage : " + users);
+//     localStorage.setItem('loggedInUsers', JSON.stringify(users));
+// }
+
+function checkLoginStatus() {
+    const urlParams = new URLSearchParams(window.location.search);
+    const loginSuccess = urlParams.get('login_success');
+    const newUser = urlParams.get('User');
+    console.log("loginSuccess : " + loginSuccess);
+    console.log("User : " + newUser);
+    // saveUser(newUser);
+    let users = JSON.parse(localStorage.getItem('loggedInUsers')) || [];
+    const userExists = users.includes(newUser);
+    console.log("storage : " + users);
+
+    if (loginSuccess === 'True' && userExists) {
+        // The user is successfully logged in, proceed to the logged-in UI
+        LoadContent('homeContent');  // For example, load the home page content
+    } else {
+        users.push(newUser);
+        localStorage.setItem('loggedInUsers', JSON.stringify(users));
+        // Show login page or prompt to log in again
+        LoadContent('openningContent');
+    }
+}
+
+function checkUserLoginFromBackend() {
+    fetch('http://localhost:8000/api/check-authentication/', {  // Your Django backend endpoint
+        method: 'GET',
+        credentials: 'include',  // This is important for including session cookies
+    })
+    .then(response => response.json())
+    .then(data => {
+        if (data.isLoggedIn) {
+            console.log("User is authenticated!");
+            navigateTo('homeContent', '../Css/Home.css',  '/Home');
+            LoadContent('homeContent');
+            document.getElementById('home').addEventListener('click', (e) => {
+                e.preventDefault();
+                LoadContent('homeContent');
+                navigateTo('homeContent', '../Css/Home.css',  '/Home');
+            });
+            document.getElementById('game').addEventListener('click', (e) => {
+                e.preventDefault();
+                LoadContent('gameContent');
+                navigateTo('gameContent', '../Css/Game.css',  '/Game');
+    
+            });
+            document.getElementById('tournoi').addEventListener('click', (e) => {
+                e.preventDefault();
+                LoadContent('tournoiContent');
+                navigateTo('tournoiContent', '../Css/Tournoi.css',  '/Tournoi');
+    
+            });
+            document.getElementById('settings').addEventListener('click', (e) => {
+                e.preventDefault();
+                LoadContent('settingContent');
+                navigateTo('settingContent', '../Css/Setting.css',  '/Settings');
+            });
+            document.getElementById('Chat').addEventListener('click', (e) => {
+                e.preventDefault();
+                LoadContent('ChatContent');
+                navigateTo('ChatContent', '../Css/Chat.css',  '/Chat');
+            });
+        } 
+        else {
+            console.log(data.isLoggedIn);
+            console.log("User is not authenticated");
+            LoadContent('openningContent');
+        }
+    })
+    .catch(error => {
+        console.error('Error checking login status:', error);
+        LoadContent('openningContent');
+    });
+}
 
 document.addEventListener('DOMContentLoaded', function() {
     
@@ -195,58 +283,7 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     });
     checkWindowSize();
-    //check_login_status();
-
-    fetch('http://localhost:8000/api/check_login/', {
-        method: 'GET',
-        credentials: 'include', // This will send cookies with the request, if needed for session-based authentication
-    })
-    .then(response => {
-        if (response.ok) {
-            return response.json();
-        }
-        throw new Error('Failed to check login status');
-    })
-    .then(data => {
-        console.log('herrrrre : ' + data.isLoggedIn);
-        if (data.isLoggedIn) {
-            LoadContent('homeContent');
-            // Update the UI or redirect the user
-        } else {
-            LoadContent('openningContent');
-            // Show login button or handle unauthenticated state
-        }
-    })
-    .catch(error => {
-        console.error('Error:', error);
-    });
-
-    LoadContent('openningContent');
-    // if(login === 1){
-        document.getElementById('home').addEventListener('click', (e) => {
-            e.preventDefault();
-            LoadContent('homeContent');
-            navigateTo('homeContent', '../Css/Home.css',  '/Home');
-        });
-        document.getElementById('game').addEventListener('click', (e) => {
-            e.preventDefault();
-            LoadContent('gameContent');
-            navigateTo('gameContent', '../Css/Game.css',  '/Game');
-
-        });
-        document.getElementById('tournoi').addEventListener('click', (e) => {
-            e.preventDefault();
-            LoadContent('tournoiContent');
-            navigateTo('tournoiContent', '../Css/Tournoi.css',  '/Tournoi');
-
-        });
-        document.getElementById('settings').addEventListener('click', (e) => {
-            e.preventDefault();
-            LoadContent('settingContent');
-            navigateTo('settingContent', '../Css/Setting.css',  '/Settings');
-        });
-       
-    // }
+    checkUserLoginFromBackend();
     // document.getElementById('chat').addEventListener('click', function() {
     //     LoadContent('tournoiContent');
     // });

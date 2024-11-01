@@ -1,17 +1,18 @@
-FROM python:3.8
+FROM python:latest
 
-# WORKDIR /app
+RUN apt update -y ; apt upgrade -y ; pip install django; pip install --upgrade pip \
+;pip install django-allauth requests dj-rest-auth djangorestframework-simplejwt django-cors-headers pyotp qrcode[pil]\
+; apt-get update && apt-get install -y postgresql-client 
 
-RUN apt update -y ; apt upgrade -y ; pip install django; pip install --upgrade pip ;pip install django-allauth requests dj-rest-auth djangorestframework-simplejwt daphne channels
-# ;pip install all;; pip install requests PyJWT  cryptography social-auth-app-django psycopg2-binary dj-rest-auth djangorestframework-simplejwt social-auth-core ;\
-# apt install sqlite3
-# ; pip install sqlite3
+WORKDIR /app
 
-# COPY ./backend /app/
+COPY requirements.txt /app
+# COPY manage.py .
+# RUN python manage.py migrate
 
+RUN pip install --no-cache-dir -r requirements.txt
 
-WORKDIR /app/backend
+# CMD ["tail", "-f"]
+# CMD [ "python", "manage.py", "runserver", "0.0.0.0:8000"]
+CMD ["bash", "-c", "python manage.py migrate && python manage.py runserver 0.0.0.0:8000"]
 
-
-CMD ["tail", "-f"]
-# CMD ["python", "manage.py", "runserver", "0.0.0.0:8000"]

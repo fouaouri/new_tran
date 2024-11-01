@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'chat/bootstrap.css' %}">
+    <link rel="stylesheet" href="{% static 'chat/style.css' %}">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <script src="{% static 'chat/jquery-3.7.1.slim.min.js' %}" defer></script>
+    <script src="{% static 'chat/popper.min.js' %}" defer></script>
+    <script src="{% static 'chat/bootstrap.js' %}" defer></script>
+    <script src="{% static 'chat/script.js' %}" defer></script>
+    <title>Chat</title>
+</head>
+
+<body >
+
+    <div class="container">
+        <div class="row no-gutters">
+            <!-- User List Section -->
+            <aside class="col-md-4 border-right user-list" id="user-list-container">
+                <div class="search-box">
+                    <div class="input-wrapper">
+                        <i class="material-icons">search</i>
+                        <input id="search-input" placeholder="Search users...">
+                    </div>
+                </div>
+                <ul id="user-list">
+                    {% for user in users %}
+                        {% if user.username != current_user %}
+                            <li class="user-item">
+                                <a href="{% url 'chat_room' username=current_user recipient_user=user.username %}" class="user-link">
+                                    <div class="friend-drawer friend-drawer--onhover" data-username="{{ user.username }}">
+                                        <img class="profile-image" src="" alt="">
+                                        <div class="text">
+                                            <h6>{{ user.username }}</h6>
+                                            <p class="text-muted">Click to chat</p>
+                                        </div>
+                                        <span class="time text-muted small">Now</span>
+                                        <span class="notification" style="display: none;">!</span> <!-- Notification span -->
+                                    </div>
+                                </a>
+                            </li>
+                        {% endif %}
+                    {% endfor %}
+                </ul>       
+            </aside>
+            
+            <!-- User Profile Section (when roomname is not available) -->
+            {% if not roomname %}
+            <section class="col-md-8 profile-panel" id="profile-container">
+                <div class="placeholder-message">
+                    <img class="placeholder-image" src="{% static 'chat/chats.png' %}" alt="No Chat">
+                    <p>Select a user from the list to start a chat.</p>
+                </div>
+            </section>
+            {% else %}                                <!-- Chat Section (when roomname is available) -->
+                <!-- Chat Section (when roomname is available) -->
+                <section class="col-md-8 chat-panel" id="chat-container" data-roomname="{{ roomname }}" data-username="{{ request.user.username }}">
+                    <div class="settings-tray">
+                        <div class="friend-drawer">
+                            <!-- Profile Photo -->
+                            <img class="profile-image" src="" alt="Profile Picture">
+                            <!-- User Information -->
+                            <div class="user-info">
+                                <h6>{{ recipient_user  }}</h6>
+                            </div>
+                            <!-- Menu -->
+                            <div class="settings-menu">
+                                <i class="material-icons">menu</i>
+                                <ul class="menu-options">
+                                    <li><a href="#" id="invite-game">Invite to Game</a></li>
+                                    <li><a href="#" id="clear-chat">Clear Chat</a></li>
+                                    <li><a href="#" id="block-user">Block User</a></li> <!-- Updated ID -->
+                                    <li><a href="#" id="view-profile">View Profile</a></li>
+                                </ul>
+                            </div>
+                            
+                        </div>
+                    </div>
+                    <!-- Chat Box -->
+                    <div id="chat-box" class="chat-messages ">
+                        <!-- Chat messages will be dynamically loaded here -->
+                    </div>
+
+                    <div class="chat-box-tray">
+                        <input type="text" id="chat-input" placeholder="Type your message here...">
+                        <button id="send-button" class="btn btn-dark">
+                            <i class="material-icons">send</i> <!-- Add the send icon here -->
+                        </button>
+                    </div>                   
+                </section>
+            {% endif %}
+        </div>
+    </div>
+</body>
+</html>
+
+

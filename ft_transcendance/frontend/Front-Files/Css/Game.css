@@ -20,6 +20,12 @@ body, html {
     /* position: relative; Ensure proper stacking context */
 }
 
+@font-face {
+    font-family: 'HotdogsDemo';
+    src: url('../Fonts/hotdogsdemo.ttf') format('truetype');
+
+}
+
 .logo {
     position: absolute;
     top: 2%;
@@ -30,7 +36,7 @@ body, html {
 
 .rectang h1 {
     position: absolute;
-    font-family: "Poppins", serif;
+    font-family: 'HotdogsDemo', serif;
     font-size: 500%;
     top: 17%;
     left: 7%;
@@ -41,7 +47,7 @@ body, html {
 
 .rectang h2 {
     position: absolute;
-    font-family: "Poppins", serif;
+    font-family: 'HotdogsDemo', serif;
     font-size: 150%;
     bottom: 30%;
     left: 7%;
@@ -51,7 +57,7 @@ body, html {
 }
 
 .tournoi h2 {
-    font-family: "Poppins", serif;
+    font-family: 'HotdogsDemo', serif;
     font-size: 150%;
     bottom: 20%;
     left: 55%;
@@ -62,7 +68,7 @@ body, html {
     position: absolute;
     bottom: 10%;
     right: 11%;
-    font-family: "Bebas Neue", serif;
+    font-family: 'HotdogsDemo', serif;
     font-weight: 200;
     font-style: normal;
     font-size: 300%;
@@ -101,7 +107,7 @@ body, html {
 
 .button-container button {
     /* padding: 2% 100%; */
-    font-family: "Bebas Neue", serif;
+    font-family: 'HotdogsDemo', serif;
     font-weight: 200;
     font-style: normal;
     font-size: 300%;
@@ -142,10 +148,10 @@ body, html {
 }
 
 button {
-    font-family: "Bebas Neue", serif;
+    font-family: 'HotdogsDemo', serif;
     font-weight: 100;
     font-style: normal;
-    font-size: 250%;
+    font-size: 350%;
     color: #ffffff;
     text-align: center;
     background: none;
@@ -157,10 +163,10 @@ button {
     position: absolute;
     top: 5%;
     left: 30%;
-    font-family: "Bebas Neue", serif;
+    font-family: 'HotdogsDemo', serif;
     font-weight: 100;
     font-style: normal;
-    font-size: 300%;
+    font-size: 450%;
     color: #26D10A;
     text-align: center;
     background: none;
@@ -179,7 +185,7 @@ button {
     
     .rectang h1 {
         position: absolute;
-        font-family: "Poppins", serif;
+        font-family: 'HotdogsDemo', serif;
         font-size: 350%;
         top: 17%;
         left: 7%;
@@ -190,7 +196,7 @@ button {
     
     .game-h2 h2 {
         position: absolute;
-        font-family: "Poppins", serif;
+        font-family: 'HotdogsDemo', serif;
         font-size: 110%;
         top: 45%;
         left: 7%;
@@ -199,7 +205,7 @@ button {
     
     }
     .tournoi h2 {
-        font-family: "Poppins", serif;
+        font-family: 'HotdogsDemo', serif;
         font-size: 110%;
         bottom: 30%;
         left: 55%;
@@ -211,7 +217,7 @@ button {
         position: absolute;
         bottom: 20%;
         right: 11%;
-        font-family: "Bebas Neue", serif;
+        font-family: 'HotdogsDemo', serif;
         font-weight: 200;
         font-style: normal;
         font-size: 250%;
@@ -249,7 +255,7 @@ button {
     }
     
     .button-container button {
-        font-family: "Bebas Neue", serif;
+        font-family: 'HotdogsDemo', serif;
         font-weight: 200;
         font-style: normal;
         font-size: 250%;
@@ -290,7 +296,7 @@ button {
     }
     
     button {
-        font-family: "Bebas Neue", serif;
+        font-family: 'HotdogsDemo', serif;
         font-weight: 100;
         font-style: normal;
         font-size: 200%;
@@ -304,7 +310,7 @@ button {
         position: absolute;
         top: 5%;
         left: 30%;
-        font-family: "Bebas Neue", serif;
+        font-family: 'HotdogsDemo', serif;
         font-weight: 100;
         font-style: normal;
         font-size: 250%;
