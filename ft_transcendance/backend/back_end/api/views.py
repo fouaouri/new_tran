@@ -15,9 +15,10 @@ def getRoute(request):
     return Response(routes)
 
 def check_login_status(request):
-    if request.user.is_authenticated:
+    if request.user.is_authenticated: 
         return JsonResponse({'isLoggedIn': True})
     return JsonResponse({'isLoggedIn': False})
+
 
 def user(request):
     if request.user.is_authenticated:
@@ -25,7 +26,13 @@ def user(request):
                             'email':request.user.email})
     return JsonResponse({'username': '',
                          'email': ''})
-    # user = User.objects.get(username=request.user)
+   # user = User.objects.get(username=request.user)
+
+def users(request):
+    users = User.objects.order_by('id').values('id', 'username', 'email')
+    # users = User.objects.all().values( 'username', 'email') 
+    users_list = list(users)  # Convert queryset to a list of dictionaries
+    return JsonResponse(users_list, safe=False) 
 
 class MyTokenObtainPairSerializer(TokenObtainPairSerializer):
     @classmethod

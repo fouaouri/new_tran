@@ -21,8 +21,8 @@ body, html {
 }
 
 @font-face {
-    font-family: 'HotdogsDemo';
-    src: url('../Fonts/hotdogsdemo.ttf') format('truetype');
+    font-family: 'Carbo';
+    src: url('../Fonts/fire.otf') format('truetype');
 
 }
 .logo {
@@ -35,7 +35,7 @@ body, html {
 
 .rectang h1 {
     position: absolute;
-    font-family: 'HotdogsDemo', serif;
+    font-family: 'Carbo', serif;
     font-size: 700%;
     top: 15%;
     left: 13%;
@@ -46,7 +46,7 @@ body, html {
 
 .rectang h2 {
     position: absolute;
-    font-family: 'HotdogsDemo', serif;
+    font-family: 'Carbo', serif;
     font-size: 200%;
     top: 37%;
     left: 13%;
@@ -116,7 +116,7 @@ body, html {
 
 .button-container button {
     padding: 1% 25%;
-    font-family: 'HotdogsDemo', serif;
+    font-family: 'Carbo', serif;
     font-weight: 300;
     font-style: normal;
     font-size: 300%;
@@ -157,10 +157,10 @@ body, html {
 }
 
 button {
-    font-family: 'HotdogsDemo', serif;
+    font-family: 'Carbo', serif;
     font-weight: 100;
     font-style: normal;
-    font-size: 250%;
+    font-size: 200%;
     color: #ffffff;
     text-align: center;
     background: none;
@@ -172,10 +172,10 @@ button {
     position: absolute;
     top: 5%;
     left: 30%;
-    font-family: 'HotdogsDemo', serif;
+    font-family: 'Carbo', serif;
     font-weight: 100;
     font-style: normal;
-    font-size: 300%;
+    font-size: 250%;
     color: #26D10A;
     text-align: center;
     background: none;

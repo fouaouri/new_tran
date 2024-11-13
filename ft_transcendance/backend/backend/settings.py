@@ -42,7 +42,6 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'django.contrib.sites',
-
     'back_end',
     # 'channels',
     # 'chat',
@@ -107,6 +106,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'corsheaders.middleware.CorsMiddleware',
+
 ]
 
 FRONTEND_URL = 'http://localhost:8080'
@@ -195,5 +195,6 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 CORS_ALLOW_CREDENTIALS = True  # Allow cookies/sessions to be sent
 CORS_ORIGIN_WHITELIST = [
-    'http://localhost:8080',  # Add your frontend origin here
+    'http://localhost:8080', 
+    "http://localhost:8001",
 ]

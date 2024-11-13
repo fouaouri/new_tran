@@ -5,12 +5,13 @@ let login = 0;
 
 function removeCssFiles(){
     const stylesheets = document.querySelectorAll('link[rel="stylesheet"]');
+    console.log(stylesheets);
     stylesheets.forEach(link => {
         link.parentNode.removeChild(link);
     });
 }
 
-function loadCssFile(cssFile){
+function loadCssFile(cssFile, additionalCssFile = null, additionalCssFile2 = null){
     removeCssFiles();
     let existLink = document.querySelector(`link[href="${cssFile}"]`);
     if (!existLink) {
@@ -19,24 +20,48 @@ function loadCssFile(cssFile){
         link.href = cssFile;
         document.head.appendChild(link);
     }
+    if (additionalCssFile) {
+        let existAdditionalLink = document.querySelector(`link[href="${additionalCssFile}"]`);
+        if (!existAdditionalLink) {
+            const additionalLink = document.createElement('link');
+            additionalLink.rel = 'stylesheet';
+            additionalLink.href = additionalCssFile;
+            document.head.appendChild(additionalLink);
+        }
+    }
+    if (additionalCssFile2) {
+        let existAdditionalLink = document.querySelector(`link[href="${additionalCssFile2}"]`);
+        if (!existAdditionalLink) {
+            const additionalLink = document.createElement('link');
+            additionalLink.rel = 'stylesheet';
+            additionalLink.href = additionalCssFile2;
+            document.head.appendChild(additionalLink);
+        }
+    }
     // window.history.pushState({content, cssFile}, 'firstContent', `${content}`);
 }
 
 function navigateTo(content, cssFile, path) {
     history.pushState({ content, cssFile }, '', path);
-    loadCssFile(cssFile);
+    
+    // if(cssFile != '../Css/Chat.css')
+    //     loadCssFile(cssFile);
+    if(cssFile === '../Css/Chat.css')
+        loadCssFile('../Css/Chat.css', '../Css/bootstrap.css', "https://fonts.googleapis.com/icon?family=Material+Icons");
+    else
+        loadCssFile(cssFile);
 }
 
 function HomeContent(){
     // loadCssFile('../Css/Home.css', 'homeContent');
     var typed = new Typed(".dynamic-h1", {
-        strings : ["A New Place <br> For Professional<br> Ping Pong <br> Gamers"],
+        strings : ["A New Place <br> For Professional<br> <span class='pingpong'>Ping Pong</span> <br> Gamers ."],
         typeSpeed : 50,
         showCursor: false
     })
     
     var typed = new Typed(".dynamic-h2", {
-        strings : ["Experience the thrill of table tennis with our fastpaced Ping Pong Game Master your skills <br>compete with friends and climb the leaderboards in this exciting arcadestyle sports game"],
+        strings : ["Experience the thrill of table tennis with our fast-paced Ping Pong Game! Master your skills, <br>compete with friends, and climb the leaderboards in this exciting arcade-style sports game."],
         typeSpeed : 20,
         startDelay: 4200,
         showCursor: false
@@ -78,11 +103,23 @@ function ChooseGame(){
     document.getElementById('ping-pong').addEventListener('click', (e) => {
         e.preventDefault();
         LoadContent('ChooseAi');
-        navigateTo('ChooseAi', '../Css/Ai.css',  '/AiorPlayer');
-        
+        navigateTo('ChooseAi', '../Css/Ai.css',  '/AiorPlayer'); 
+    });
+    document.getElementById('star-wars').addEventListener('click', (e) => {
+        e.preventDefault();
+        LoadContent('StarWars');
+        navigateTo('StarWars', '../Css/StarWars.css',  '/StarWars');
     });
 }
 
+function Aigame(){
+    // loadCssFile('../Css/ChooseGame.css', 'gameContent');
+    document.getElementById('playAI').addEventListener('click', (e) => {
+        e.preventDefault();
+        LoadContent('AIgame');
+        navigateTo('AIgame', '../Css/3d.css',  '/AIgame');     
+    });
+}
 function EditContent(){
     // loadCssFile('../Css/Edit.css', 'EditContent');
     document.getElementById('Avatar').addEventListener('click', (e) => {
@@ -131,6 +168,8 @@ function LoadContent(templateId){
         ChooseGame();
     if(templateId === 'EditContent')
         EditContent();
+    if(templateId=== 'ChooseAi')
+        Aigame();
     if(templateId === 'firstContent'){
         
         document.getElementById('intra42-login-btn').addEventListener('click', function() {
@@ -259,7 +298,7 @@ function checkUserLoginFromBackend() {
             document.getElementById('Chat').addEventListener('click', (e) => {
                 e.preventDefault();
                 LoadContent('ChatContent');
-                navigateTo('ChatContent', '../Css/Chat.css',  '/Chat');
+                navigateTo('ChatContent', '../Css/Chat.css', '/Chat');
             });
         } 
         else {

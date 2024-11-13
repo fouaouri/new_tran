@@ -9,6 +9,7 @@ RUN apt update -y && apt upgrade -y \
     && apt-get install -y postgresql-client \
     && pip install --upgrade pip \
     && pip install django daphne redis \
+    && pip install django-cors-headers \
     && pip install django-allauth requests dj-rest-auth djangorestframework-simplejwt django-cors-headers channels
 
 # Set the working directory inside the container

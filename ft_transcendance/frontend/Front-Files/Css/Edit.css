@@ -21,8 +21,8 @@ body, html {
 }
 
 @font-face {
-    font-family: 'HotdogsDemo';
-    src: url('../Fonts/hotdogsdemo.ttf') format('truetype');
+    font-family: 'Carbo';
+    src: url('../Fonts/fire.otf') format('truetype');
 
 }
 .logo {
@@ -61,7 +61,7 @@ body, html {
 }
 
 .Done button {
-    font-family: 'HotdogsDemo', serif;
+    font-family: 'Carbo', serif;
     font-weight: 200;
     font-style: normal;
     font-size: 300%;
@@ -135,10 +135,10 @@ body, html {
 }
 
 button {
-    font-family: 'HotdogsDemo', serif;
+    font-family: 'Carbo', serif;
     font-weight: 100;
     font-style: normal;
-    font-size: 250%;
+    font-size: 200%;
     color: #ffffff;
     text-align: center;
     background: none;
@@ -149,10 +149,10 @@ button {
     position: absolute;
     top: 5%;
     right: 7%;
-    font-family: 'HotdogsDemo', serif;
+    font-family: 'Carbo', serif;
     font-weight: 100;
     font-style: normal;
-    font-size: 300%;
+    font-size: 250%;
     color: #26D10A;
     text-align: center;
     background: none;
@@ -195,7 +195,7 @@ button {
     }
     
     .Done button {
-        font-family: 'HotdogsDemo', serif;
+        font-family: 'Carbo', serif;
         font-weight: 200;
         font-style: normal;
         font-size: 250%;
@@ -257,7 +257,7 @@ button {
     }
     
     button {
-        font-family: 'HotdogsDemo', serif;
+        font-family: 'Carbo', serif;
         font-weight: 100;
         font-style: normal;
         font-size: 200%;
@@ -271,7 +271,7 @@ button {
         position: absolute;
         top: 5%;
         right: 7%;
-        font-family: 'HotdogsDemo', serif;
+        font-family: 'Carbo', serif;
         font-weight: 100;
         font-style: normal;
         font-size: 250%;

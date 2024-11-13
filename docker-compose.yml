@@ -49,7 +49,30 @@ services:
       - "6379:6379"
     networks:
       - ft_transcendance
-
+  game:
+      image: 'game'
+      container_name: 'game'
+      build: 'ft_transcendance/game'
+      volumes:
+        - ./ft_transcendance/game:/game3d
+      ports:
+        - "8002:8002"
+      networks:
+        - ft_transcendance
+      depends_on:
+        - redis
+  gamebonus:
+      image: 'gamebonus'
+      container_name: 'gamebonus'
+      build: 'ft_transcendance/gamebonus'
+      volumes:
+        - ./ft_transcendance/gamebonus:/gamebonus3d
+      ports:
+        - "8003:8003"
+      networks:
+        - ft_transcendance
+      depends_on:
+        - redis
   postgres:
     image: postgres:13
     container_name: postgres

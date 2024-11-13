@@ -18,23 +18,29 @@ body, html {
     background-repeat: no-repeat;
     filter: blur(15px);
 }
-@font-face {
-    font-family: 'HotdogsDemo';
-    src: url('../Fonts/hotdogsdemo.ttf') format('truetype');
 
+@font-face {
+    font-family: 'Carbo';
+    src: url('../Fonts/KGBlankSpaceSolid.ttf') format('truetype');
 }
+
+@font-face {
+    font-family: 'Umpty';
+    src: url('../Fonts/umpty-inside.otf') format('truetype');
+}
+
 .logo{
     position: absolute;
     top: 2%;
     left: 45.7%;
-    width: 150px;
+    width: 120px;
     height: auto;
 }
 
 .centered-text h1{
     position: absolute;
     padding: 63px 44px;
-    font-family: 'HotdogsDemo', serif;
+    font-family: 'Umpty', sans-serif;
     font-weight: 1000;
     font-style: normal;
     font-size: 100px;
@@ -48,9 +54,9 @@ body, html {
     top: 30%;
     left: 5%;
     right: 5%;
-    color: #060606;
-    background-color: rgba(90, 120, 102, 0.5);
-    text-shadow: 0 0 20px rgb(255, 255, 255);
+    color: #ffffff;
+    text-shadow: 0 0 10px rgba(0, 255, 0, 0.90);
+    background-color: rgba(0 0 0 / 50%);
     box-shadow: 0 0 20px rgba(0, 255, 0, 0.90);
     border-radius: 10px;
     letter-spacing: 0.5rem;
@@ -60,22 +66,26 @@ body, html {
 .button-container {
     position: absolute;
     bottom: 20%;
-    right:45%;
+    right:47%;
 }
 
 .button-container button {
-    padding: 0.50rem 2rem;
-    font-family: 'HotdogsDemo', serif;
-    font-weight: 100;
+    font-family:  'Carbo', sans-serif;
+    font-weight: 200;
     font-style: normal;
-    font-size: 50px;
-    color: #060606;
-    text-align: center;
-    background-color: rgba(90, 120, 102, 0.5);
-    text-shadow: 0 0 10px rgb(255, 255, 255);
-    box-shadow: 0 0 20px rgba(0, 255, 0, 0.90);
-    cursor: pointer;
+    font-size: 180%;
+    color: #ffffff;
+    box-shadow: 0 0 10px rgba(0, 255, 0, 0.90);
+    text-shadow: 0 0 20px rgba(3, 63, 3, 0.9);
     border-radius: 10px;
+}
+
+.button-container:hover{
+    box-shadow: 0 0 10px  #54ec99, 0 0 20px #54ec99, 0 0 30px #54ec99;
+    background-color: #54ec99;
+    transform: scale(1.1);
+    border-radius: 10px;
+    cursor: pointer;
 }
 
 .button-Profile {
@@ -115,12 +125,14 @@ body, html {
 }
 
 button {
-    font-family: 'HotdogsDemo', serif;
+    font-family: monospace;
     font-weight: 100;
     font-style: normal;
-    font-size: 350%;
-    color: #ffffff;
+    font-size: 180%;
     text-align: center;
-    background: none;
+    color: transparent;
+    background: white;
+    background-clip: text;
+    -webkit-background-clip: text;
     border: none;
 }

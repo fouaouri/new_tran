@@ -1,0 +1,24 @@
+.page{
+    color:blue;
+}
+.green{
+    color:rgb(21, 255, 0);
+}
+.background {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    width: 100vw;
+    background-image: url('/static/images/new_backround.jpeg'); /* Path to your image */
+    background-size: cover; /* Ensure the image covers the whole area */
+    background-position: center; /* Center the image */
+    background-repeat: no-repeat;
+    /* filter: blur(15px); */
+    /* position: relative; Ensure proper stacking context */
+}
+.button {
+background-color: aqua;
+
+}
+

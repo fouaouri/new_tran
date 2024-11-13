@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <!-- {% load static %} -->
+    <!-- <img src="{% static 'assets/angel-Csxu-QsI.png' %}" alt="angel"> -->
+
+    <!-- <img src="{% static '../../apllw-BKpK0_ub-BKpK0_ub.png' %}">   -->
+
+    <!-- <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> -->
+    <title>3D Game</title>
+    <!-- Include Three.js from CDN -->
+    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script> -->
+    <!-- Include OrbitControls from CDN -->
+    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/examples/js/controls/OrbitControls.js"></script> -->
+    <!-- Include GLTFLoader from CDN -->
+    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/examples/js/loaders/GLTFLoader.js"></script> -->
+    <!-- <style>
+        body { margin: 0; overflow: hidden; }
+        canvas { display: block; }
+    </style> -->
+    <!-- -->
+    
+
+    <!-- <div class="background">
+        <button><h1 class="button">Play with AI</h1></button>
+        <button><h1 class="green">Play with Human</h1></button> -->
+        <!-- <h1 >GAME</h1> -->
+     <!-- </div> -->
+ <script type="importmap">
+        {
+          "imports": {
+            "three": "https://cdn.jsdelivr.net/npm/three@<version>/build/three.module.js",
+            "three/addons/": "https://cdn.jsdelivr.net/npm/three@<version>/examples/jsm/"
+          }
+        }
+      </script>
+  <script type="module" crossorigin src="/assets/index-ZMH8g1mx.js"></script>
+</head>
+<body>
+    <!-- Include your main.js script -->
+</body>
+</html>
+
+
+<!-- <!DOCTYPE html>
+<html>
+<head> <title>work</title>
+{% load static %}
+<link rel="stylesheet" href="{% static 'page.css'%}">  
+</head> 
+<body>
+    <div class="background">
+    <button><h1 class="button">Play with AI</h1></button>
+    <button><h1 class="green">Play with Human</h1></button> -->
+    <!-- <h1 >GAME</h1> -->
+<!-- </div>
+</body>
+</html>
+
+<!DOCTYPE html>
+<html>
+<body> -->
+<!-- 
+<h2>What Can JavaScript Do?</h2>
+
+<p>JavaScript can change HTML attribute values.</p>
+
+<p>In this case JavaScript changes the value of the src (source) attribute of an image.</p>
+
+<button onclick="document.getElementById('myImage').src='pic_bulbon.gif'">Turn on the light</button>
+
+<img id="myImage" src="pic_bulboff.gif" style="width:100px">
+
+<button onclick="document.getElementById('myImage').src='pic_bulboff.gif'">Turn off the light</button>
+
+</body>
+</html> -->
+
+
+
+<!-- <!DOCTYPE html>
+<html>
+<head>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'page.css' %}">   -->
+
+    <!-- <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> -->
+    <!-- <title>3D Game</title> -->
+    <!-- Include Three.js from CDN -->
+    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script> -->
+    <!-- Include OrbitControls from CDN -->
+    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/examples/js/controls/OrbitControls.js"></script> -->
+    <!-- Include GLTFLoader from CDN -->
+    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/examples/js/loaders/GLTFLoader.js"></script> -->
+    <!-- <style>
+        body { margin: 0; overflow: hidden; }
+        canvas { display: block; }
+    </style> -->
+    
+    <!-- <script type="importmap">
+        {
+          "imports": {
+            "three": "https://cdn.jsdelivr.net/npm/three@<version>/build/three.module.js",
+            "three/addons/": "https://cdn.jsdelivr.net/npm/three@<version>/examples/jsm/"
+          }
+        }
+    </script>
+    <script type="module" crossorigin src="../../static/game/dist/assets/index-DAMFzrJt.js"></script>
+</head>
+<body> -->
+    <!-- Content before the game -->
+    <!-- <div class="background">
+        <button onclick="startGame('AI')"><h1 class="button">Play with AI</h1></button>
+        <button onclick="startGame('Human')"><h1 class="green">Play with Human</h1></button>
+    </div>
+
+    <script>
+      // Function to start the game with the selected mode
+      function startGame(mode) {
+          // Import the game script dynamically
+          import('../../static/game/dist/assets/index-DAMFzrJt.js')
+              .then(module => {
+                  // Check if the module exports a startGame function
+                  if (module && typeof module.startGame === 'function') {
+                      module.startGame(mode);
+                  } else {
+                      console.error('The module does not export a startGame function.');
+                  }
+              })
+              .catch(err => console.error('Failed to load the game script:', err));
+      }
+    </script>
+</body>
+</html> -->

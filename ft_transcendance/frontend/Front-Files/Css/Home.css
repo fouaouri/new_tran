@@ -22,33 +22,21 @@ body, html {
     /* position: relative; Ensure proper stacking context */
 }
 
-.gif-ping {
-    position: absolute;
-    top: 20%;
-    right: 10%;
-    width: 30%;
-    height: 50%;
-    background-image: url(../assets/images/giphy.gif);
-    border-radius: 50%;
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-color: #ffffff;
-    animation: none;
-    /* filter: blur(15px); */
-
-}
 @font-face {
-    font-family: 'HotdogsDemo';
-    src: url('../Fonts/hotdogsdemo.ttf') format('truetype');
+    font-family: 'Carbo';
+    src: url('../Fonts/KGBlankSpaceSolid.ttf') format('truetype');
+}
 
+@font-face {
+    font-family: 'Umpty';
+    src: url('../Fonts/umpty-inside.otf') format('truetype');
 }
 
 .logo{
     position: absolute;
     top: 2%;
     left: 45.7%;
-    width: 150px;
+    width: 120px;
     height: auto;
 }
 
@@ -56,45 +44,55 @@ body, html {
     position: absolute;
     overflow: hidden;
     white-space: nowrap;
-    font-family: 'HotdogsDemo', sans-serif;
-    font-size: 450%;
+    font-family: 'Umpty', sans-serif;
+    font-size: 350%;
     top: 20%;
-    left: 7%;
+    left: 26%;
     color: #ffffff;
     text-shadow: 0 0 10px rgba(0, 255, 0, 0.90);
     transition: all 0.5s ease;
+    text-align: center;
 }
-
+.dynamic-h1 .pingpong {
+    color: #54ec99;
+}
 .dynamic-h2 {
     position: absolute;
     overflow: hidden;
     white-space: nowrap;
-    font-family: 'HotdogsDemo', sans-serif;
-    font-size: 130%;
-    bottom: 22%;
-    left: 7%;
+    font-family: monospace;
+    font-size: 80%;
+    bottom: 25%;
+    left: 27%;
+    text-align: center;
     color: #ffffff;
-    /* text-shadow: 0 0 10px rgba(0, 255, 0, 0.90); */
-
 }
 
 .button-container {
     position: absolute;
-    top: 82%;
-    left: 7%;
-    font-size: 110%;
+    bottom: 15%;
+    right: 47%;
+    font-size: 100%;
 }
 
+
 .button-container button {
-    font-family:  'HotdogsDemo', sans-serif;
+    font-family:  'Carbo', sans-serif;
     font-weight: 200;
     font-style: normal;
-    font-size: 250%;
+    font-size: 180%;
     color: #ffffff;
-    background-color: rgba(15, 157, 53, 0.6);
     box-shadow: 0 0 10px rgba(0, 255, 0, 0.90);
     text-shadow: 0 0 20px rgba(3, 63, 3, 0.9);
     border-radius: 10px;
+}
+
+.button-container:hover{
+    box-shadow: 0 0 10px  #54ec99, 0 0 20px #54ec99, 0 0 30px #54ec99;
+    background-color: #54ec99;
+    transform: scale(1.1);
+    border-radius: 10px;
+    cursor: pointer;
 }
 
 .button-Profile {
@@ -129,13 +127,15 @@ body, html {
 
 
 button {
-    font-family:  'HotdogsDemo', sans-serif;
+    font-family: monospace;
     font-weight: 100;
     font-style: normal;
-    font-size: 350%;
-    color: #ffffff;
+    font-size: 180%;
     text-align: center;
-    background: none;
+    color: transparent;
+    background: white;
+    background-clip: text;
+    -webkit-background-clip: text;
     border: none;
 }
 
@@ -143,14 +143,17 @@ button {
     position: absolute;
     top: 5%;
     left: 7%;
-    font-family:  'HotdogsDemo', sans-serif;
+    font-family: monospace;
     font-weight: 100;
     font-style: normal;
-    font-size: 450%;
-    color: #26D10A;
+    font-size: 220%;
+    color: #ffffff;
     text-align: center;
-    background: none;
-    border: none;
+    background: linear-gradient(135deg, #f5f5f5, #8abf82);
+    text-shadow: 0 0 5px rgba(0, 255, 0, 0.90);
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
 }
 
 @media (max-width : 1400px){    
@@ -158,72 +161,63 @@ button {
         position: absolute;
         top: 2%;
         left: 45%;
-        width: 12%;
+        width: 110px;
         height: auto;
-    }
-    
-    .gif-ping {
-        position: absolute;
-        height: 30%;
-        width: 25%;
-        top: 20%;
-        right: 10%;
-        background-image: url('../assets/images/giphy.gif');
-        border-radius: 50%;
-        background-size: cover; /* Ensure the image covers the whole area */
-        background-position: center; /* Center the image */
-        background-repeat: no-repeat;
-        background-color: rgba(73, 103, 81, 0.3);
-
-        animation: none;
-    
     }
 
     .dynamic-h1 {
         position: absolute;
         overflow: hidden;
         white-space: nowrap;
-        font-family:  'HotdogsDemo', sans-serif;
-        font-size: 250%;
+        font-family: 'Umpty', sans-serif;
+        font-size: 300%;
         top: 20%;
-        left: 7%;
+        left: 17%;
         color: #ffffff;
         text-shadow: 0 0 10px rgba(0, 255, 0, 0.90);
         transition: all 0.5s ease;
+        text-align: center;
     }
-    
+    .dynamic-h1 .pingpong {
+        color: #54ec99;
+    }
     .dynamic-h2 {
         position: absolute;
         overflow: hidden;
         white-space: nowrap;
-        font-family:  'HotdogsDemo', sans-serif;
-        font-size: 80%;
-        bottom: 40%;
-        left: 7%;
+        font-family: monospace;
+        font-size: 70%;
+        bottom: 25%;
+        left: 18%;
+        text-align: center;
         color: #ffffff;
-        /* text-shadow: 0 0 10px rgba(0, 255, 0, 0.90); */
     
     }
 
-
-    
     .button-container {
         position: absolute;
-        top: 70%;
-        left: 7%;
+        bottom: 15%;
+        right: 47%;
+        font-size: 90%;
     }
     
     .button-container button {
-        font-family: 'HotdogsDemo', serif;
-        font-weight: 100;
+        font-family:  'Carbo', sans-serif;
+        font-weight: 200;
         font-style: normal;
-        font-size: 200%;
+        font-size: 180%;
         color: #ffffff;
-        background-color: rgba(15, 157, 53, 0.6);
         box-shadow: 0 0 10px rgba(0, 255, 0, 0.90);
+        text-shadow: 0 0 20px rgba(3, 63, 3, 0.9);
         border-radius: 10px;
     }
-    
+    .button-container:hover{
+        box-shadow: 0 0 10px  #54ec99, 0 0 20px #54ec99, 0 0 30px #54ec99;
+        background-color: #54ec99;
+        transform: scale(1.1);
+        border-radius: 10px;
+        cursor: pointer;
+    }
     .button-Profile {
         position: absolute;
         top: 5%;
@@ -255,13 +249,15 @@ button {
     }
     
     button {
-        font-family: 'HotdogsDemo', serif;
+        font-family: monospace;
         font-weight: 100;
         font-style: normal;
-        font-size: 200%;
-        color: #ffffff;
+        font-size: 170%;
         text-align: center;
-        background: none;
+        color: transparent;
+        background: white;
+        background-clip: text;
+        -webkit-background-clip: text;
         border: none;
     }
     
@@ -269,14 +265,17 @@ button {
         position: absolute;
         top: 5%;
         left: 7%;
-        font-family: 'HotdogsDemo', serif;
+        font-family: monospace;
         font-weight: 100;
         font-style: normal;
-        font-size: 250%;
-        color: #26D10A;
+        font-size: 210%;
+        color: #ffffff;
         text-align: center;
-        background: none;
-        border: none;
+        background: linear-gradient(135deg, #f5f5f5, #8abf82);
+        text-shadow: 0 0 5px rgba(0, 255, 0, 0.90);
+        background-clip: text;
+        -webkit-background-clip: text;
+        color: transparent;
     }
 
 }

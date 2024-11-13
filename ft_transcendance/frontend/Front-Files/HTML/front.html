@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Background Image with Centered Text</title>
     <link rel="stylesheet" href="../Css/Home.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
 </head>
@@ -33,15 +33,14 @@
                 </div>
                 <div class="Email-rectangle"></div>
                 <div class="button-Email">
-                    <h2>Email</h2>
+                    <input>Email</input>
                 </div>
                 <div class="Password-rectangle"></div>
                 <div class="button-Password">
-                    <h2>Password</h2>
+                    <input>Password</input>
                 </div>
-                <div class="Signin-rectangle"></div>
                 <div class="button-Signin">
-                    <h2>Sign in</h2>
+                    <button>Sign in</button>
                 </div>
                 <div class="button-Github">
                     <button>Sign up with Github</button>
@@ -54,13 +53,16 @@
             </div>
         </template>
         <template id="homeContent">
-            <div class="gif-ping"></div>
+            <!-- <div class="gif-ping"></div> -->
             <h1> <span class="dynamic-h1"></span></h1>
             <h2><span class="dynamic-h2"></span></h2>
             <div class="button-container" id="start">
                 <button id="button-container1">Lets Start</button>
             </div>
         </template>
+
+
+
         <template id="ChatContent">
 
             <div class="container">
@@ -70,92 +72,77 @@
                         <div class="search-box">
                             <div class="input-wrapper">
                                 <i class="material-icons">search</i>
-                                <input id="search-input" placeholder="Search users...">
+                                <input id="search-input" placeholder="Search users..." aria-label="Search users">
                             </div>
                         </div>
-                        <ul id="user-list">
-                            {% for user in users %}
-                                {% if user.username != current_user %}
-                                    <li class="user-item">
-                                        <a href="{% url 'chat_room' username=current_user recipient_user=user.username %}" class="user-link">
-                                            <div class="friend-drawer friend-drawer--onhover" data-username="{{ user.username }}">
-                                                <img class="profile-image" src="" alt="">
-                                                <div class="text">
-                                                    <h6>{{ user.username }}</h6>
-                                                    <p class="text-muted">Click to chat</p>
-                                                </div>
-                                                <span class="time text-muted small">Now</span>
-                                                <span class="notification" style="display: none;">!</span> <!-- Notification span -->
-                                            </div>
-                                        </a>
-                                    </li>
-                                {% endif %}
-                            {% endfor %}
-                        </ul>       
+                        <ul id="user-list" class="list-group">
+                            <!-- User items will be populated dynamically by JavaScript -->
+                        </ul>
                     </aside>
+        
                     
-                    <!-- User Profile Section (when roomname is not available) -->
-                    {% if not roomname %}
+                    <!-- Placeholder Profile Section (when no chat room is active) -->
                     <section class="col-md-8 profile-panel" id="profile-container">
                         <div class="placeholder-message">
                             <img class="placeholder-image" src="../assets/images/chats.png" alt="No Chat">
                             <p>Select a user from the list to start a chat.</p>
                         </div>
                     </section>
-                    {% else %}                                <!-- Chat Section (when roomname is available) -->
-                        <!-- Chat Section (when roomname is available) -->
-                        <section class="col-md-8 chat-panel" id="chat-container" data-roomname="{{ roomname }}" data-username="{{ request.user.username }}">
-                            <div class="settings-tray">
-                                <div class="friend-drawer">
-                                    <!-- Profile Photo -->
-                                    <img class="profile-image" src="" alt="Profile Picture">
-                                    <!-- User Information -->
-                                    <div class="user-info">
-                                        <h6>{{ recipient_user  }}</h6>
-                                    </div>
-                                    <!-- Menu -->
-                                    <div class="settings-menu">
-                                        <i class="material-icons">menu</i>
-                                        <ul class="menu-options">
-                                            <li><a href="#" id="invite-game">Invite to Game</a></li>
-                                            <li><a href="#" id="clear-chat">Clear Chat</a></li>
-                                            <li><a href="#" id="block-user">Block User</a></li> <!-- Updated ID -->
-                                            <li><a href="#" id="view-profile">View Profile</a></li>
-                                        </ul>
-                                    </div>
-                                    
+        
+                    <!-- Chat Section (when a chat room is active) -->
+                    <section class="col-md-8 chat-panel d-none" id="chat-container">
+                        <div class="settings-tray">
+                            <div class="friend-drawer">
+                                <!-- Profile Photo -->
+                                <img class="profile-image" src="" alt="Profile Picture">
+                                <!-- User Information -->
+                                <div class="user-info">
+                                    <h6 id="recipient-username"></h6>
+                                </div>
+                                <!-- Menu -->
+                                <div class="settings-menu">
+                                    <i class="material-icons">menu</i>
+                                    <ul class="menu-options">
+                                        <li><a href="#" id="invite-game">Invite to Game</a></li>
+                                        <li><a href="#" id="clear-chat">Clear Chat</a></li>
+                                        <li><a href="#" id="block-user">Block User</a></li>
+                                        <li><a href="#" id="view-profile">View Profile</a></li>
+                                    </ul>
                                 </div>
                             </div>
-                            <!-- Chat Box -->
-                            <div id="chat-box" class="chat-messages ">
-                                <!-- Chat messages will be dynamically loaded here -->
-                            </div>
+                        </div>
         
-                            <div class="chat-box-tray">
-                                <input type="text" id="chat-input" placeholder="Type your message here...">
-                                <button id="send-button" class="btn btn-dark">
-                                    <i class="material-icons">send</i> <!-- Add the send icon here -->
-                                </button>
-                            </div>                   
-                        </section>
-                    {% endif %}
+                        <!-- Chat Box -->
+                        <div id="chat-box" class="chat-messages">
+                            <!-- Chat messages will be dynamically loaded here -->
+                        </div>
+        
+                        <div class="chat-box-tray">
+                            <input type="text" id="chat-input" placeholder="Type your message here...">
+                            <button id="send-button" class="btn btn-dark">
+                                <i class="material-icons">send</i>
+                            </button>
+                        </div>
+                    </section>
                 </div>
             </div>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
             <link rel="stylesheet" href="../Css/bootstrap.css">
-            <script src="../JS/Chat.js"></script>
-            <script src="../JS/jquery-3.7.1.slim.min.js" defer></script>
+            <link rel="stylesheet" href="../Css/Chat.css">
+            <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+            <script src="../JS/jquery-3.7.1.slim.min.js" ></script>
             <script src="../JS/popper.min.js" defer></script>
             <script src="../JS/bootstrap.js" defer></script>
-            <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
-            <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-            <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha384-KyZXEAg3QhqLMpG8r+Knujsl5/1hb7MQvhFt5/PoovQMTvN7zggA5X0onlNUBOr6" crossorigin="anonymous"></script>
-            <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+            <script src="../JS/Chat.js" defer></script>
 
         </template>
+
+
+
         <template id="gameContent">
-            <h1> <span class="dynamic-h1"></span></h1>
                 <div class="circle">
-                    <img src="../assets/images/pingpong.png" alt="Your Image">
+                    <img src="../assets/images/neonpingpong.jpg" alt="Your Image">
                 </div>
                 <div class="rectang">
                     <h1>Welcome to our Ping Pong <br>Game: master your skills, <br>compete with friends, and <br>rise to the top!</h1>
@@ -176,10 +163,25 @@
                     </div>
                 </div>
         </template>
-
+        <template id="AIgame">
+            <script type="importmap">
+                {
+                  "imports": {
+                    "three": "https://cdn.jsdelivr.net/npm/three@<version>/build/three.module.js",
+                    "three/addons/": "https://cdn.jsdelivr.net/npm/three@<version>/examples/jsm/"
+                  }
+                }
+              </script>
+            <script type="module" crossorigin src="../JS/index-ZMH8g1mx.js"></script>
+        </template>
+        <template id="StarWars">
+            <script type="module" crossorigin src="../JS/main-TMWcyKWO.js"></script>
+	        <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+	        <script src="https://threejs.org/examples/js/controls/OrbitControls.js"></script>
+        </template>
         <template id="tournoiContent">
             <div class="circle">
-                <img src="../assets/images/tournoie.png" alt="Your Image">
+                <img src="../assets/images/ranking.png" alt="Your Image">
             </div>
             <div class="rectang">
                 <h1>Join our tournament for a <br>thrilling ping pong <br>showdown and prove <br>you're the best!</h1>
@@ -194,16 +196,18 @@
         </template>
     
         <template id="settingContent">
+            <div class="rectangle">
+                
+            </div>
             <div class="circle">
                 <img src="../assets/images/fouaouri.jpeg" alt="Your Image">
             </div>
-            <div>
-                <img src="../assets/images/logo.png" alt="Logo" class="logo"> 
-            </div>
             <div class="Edit" id="Edit">
-                <button>Edit profile</button>
+                <button>Edit</button>
             </div>
-        
+            <div class="Logout" id="Logout">
+                <button>Logout</button>
+            </div>
             <div class="Infos">
                 <h2>Full name</h2>
                     <h1>Fouaouri</h1>
@@ -246,9 +250,6 @@
 
         <template id="ChooseGame">
             <h1> CHOOSE A GAME </h1>
-            <div>
-                <img src="../assets/images/logo.png" alt="Logo" class="logo"> 
-            </div>
             <div class="star-wars">
                 <img src="../assets/images/starwars.png" alt="image">
                     <div class="star-button">
@@ -256,19 +257,23 @@
                     </div>
             </div>
             <div class="Ping-pong">
+                <div class="hiden-choices">
+                    <div class="ChooseAi">
+                        <button>Play with AI</button>
+                    </div>
+                    <div class="ChoosePlayer">
+                        <button>Play with other Players</button>
+                    </div>
+                </div>
                 <img src="../assets/images/ping-pong.png" alt="image">
                 <div class="ping-button">
                     <button id="ping-pong">PING PONG</button>
-                </div>
-                
+                </div>  
             </div>
         </template>
 
         <template id="ChooseAi">
             <h1> YOU WOULD LIKE TO CHOOSE </h1>
-            <div>
-                <img src="../assets/images/logo.png" alt="Logo" class="logo"> 
-            </div>
             <div class="play-AI">
                 <img src="../assets/images/ai.png" alt="image">
                     <div class="AI-button">
