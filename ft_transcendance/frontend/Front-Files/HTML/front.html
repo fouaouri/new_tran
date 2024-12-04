@@ -60,7 +60,10 @@
                 <button id="button-container1">Lets Start</button>
             </div>
         </template>
+        <template id="ProfileContent">
 
+            
+        </template>
 
 
         <template id="ChatContent">
@@ -197,54 +200,44 @@
     
         <template id="settingContent">
             <div class="rectangle">
-                
-            </div>
-            <div class="circle">
-                <img src="../assets/images/fouaouri.jpeg" alt="Your Image">
-            </div>
-            <div class="Edit" id="Edit">
-                <button>Edit</button>
-            </div>
-            <div class="Logout" id="Logout">
-                <button>Logout</button>
-            </div>
-            <div class="Infos">
-                <h2>Full name</h2>
-                    <h1>Fouaouri</h1>
-                <h2>Mail</h2>
-                    <h1>fzouaourikt@gmail.com</h1>
-                <h2>Age</h2>
-                    <h1>23 y.o</h1>
-                <h2>Avatar</h2>
-                    <h1>Toothless</h1>
-                <h2>City</h2>
-                    <h1>Benguerir</h1>
-                <h2>Bio</h2>
-                    <h1>Hi, I'm Toothless, a sleek black Night Fury with striking green eyes and incredible speed. <br>Known for my powerful plasma blasts and unbreakable bond with my rider, Hiccup, <br>I'm the ultimate flying companion and defender of Berk.</h1>
+                <div class="circle">
+                    <img src="../assets/images/fouaouri.jpeg" alt="Your Image">
+                </div>
+                <div class="Edit" id="Edit">
+                    <button>Edit</button>
+                </div>
+                <div class="Logout" id="Logout">
+                    <button>Logout</button>
+                </div>
+                <div class="Infos">
+                    <h2>Full name</h2>
+                        <h1>Fouaouri</h1>
+                    <h2>Mail</h2>
+                        <h1>fzouaourikt@gmail.com</h1>
+                    <!-- <h2>Age</h2>
+                        <h1>23 y.o</h1>
+                    <h2>Avatar</h2>
+                        <h1>Toothless</h1>
+                    <h2>City</h2>
+                        <h1>Benguerir</h1> -->
+                    
+                    <!-- <h2>Bio</h2>
+                        <h1>Hi, I'm Toothless, a sleek black Night Fury with striking green eyes and incredible speed. <br>Known for my powerful plasma blasts and unbreakable bond with my rider, Hiccup, <br>I'm the ultimate flying companion and defender of Berk.</h1> -->
+                </div>    
             </div>
         </template>
 
         <template id="EditContent">
-            <div class="circle">
-                <img src="../assets/images/fouaouri.jpeg" alt="Your Image">
-            </div>
-            <div class="Done" id="Done">
-                <button>Update</button>
-            </div>
-        
-            <div class="Infos" >
-                <h2>Full name</h2>
-                    <input type="text" class="f_name">
-                <h2>Mail</h2>
-                    <input type="text" class="f_name">
-                <h2>Age</h2>
-                    <input type="number" class="f_name">
-                <h2>Avatar</h2>
-                    <button class="Avatar" id="Avatar">Choose Avatar</button>
-                <h2>City</h2>
-                    <input type="text" class="f_name">
-                <h2>Bio</h2>
-                    <input type="text" class="f_name">
+            <div class="rectangle">
+                <div class="circle">
+                    <img src="../assets/images/fouaouri.jpeg" alt="Your Image">
+                </div>
+                
+                <form class="Infos" >
+                    <input name="username" type="text" placeholder="username" class="f_name">
+                    <input name="email" type="text" placeholder="email" class="f_name">
+                    <button type="submit" class="Done">Update</button>
+                </form>
             </div>
         </template>
 

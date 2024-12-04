@@ -4,7 +4,8 @@ from rest_framework.decorators import api_view
 from rest_framework_simplejwt.serializers import TokenObtainPairSerializer
 from rest_framework_simplejwt.views import TokenObtainPairView
 from django.contrib.auth.models import User
-
+from rest_framework.decorators import api_view, permission_classes
+from rest_framework.permissions import AllowAny
 
 @api_view(['GET'])
 def getRoute(request):
@@ -19,7 +20,8 @@ def check_login_status(request):
         return JsonResponse({'isLoggedIn': True})
     return JsonResponse({'isLoggedIn': False})
 
-
+# @api_view(['GET', 'POST'])
+# @permission_classes([AllowAny])
 def user(request):
     if request.user.is_authenticated:
         return JsonResponse({'username': request.user.username,

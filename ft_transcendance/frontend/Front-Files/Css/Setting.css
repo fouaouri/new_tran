@@ -52,10 +52,10 @@ body, html {
 
 .circle {
     position: absolute;
-    top: 20%;
-    left: 47%;
-    width: 5%;
-    height: 9%;
+    top: 10%;
+    left: 42%;
+    width: 15%;
+    height: 16%;
     border-radius: 50%;
     overflow: hidden;
     display: flex;
@@ -73,8 +73,8 @@ body, html {
 
 .Edit {
     position: absolute;
-    bottom: 10%;
-    left: 44%;
+    bottom: 5%;
+    left: 35%;
     font-size: 100%;
 }
 
@@ -98,8 +98,8 @@ body, html {
 
 .Logout {
     position: absolute;
-    bottom: 10%;
-    right: 44%;
+    bottom: 5%;
+    right: 35%;
     font-size: 100%;
 }
 
@@ -120,29 +120,20 @@ body, html {
     border-radius: 10px;
     cursor: pointer;
 }
-/* @font-face {
-    font-family: myFont;
-    src: url(../../my_fonts/Roboto-Light.ttf);
-} */
 
 .Infos {
     position: absolute;
     font-family: monospace;
-    top: 40%;
-    left: 20%;
+    top: 30%;
+    left: 10%;
     font-size: 70%;
     color: #26D10A;
 
 }
 
-/* @font-face {
-    font-family: h1Font;
-    src: url(../../my_fonts/namefont.ttf);
-} */
 
 .Infos h1 {
     color: #ffffff;
-    /* font-family: h1Font; */
     font-size: 200%;
 }
 
@@ -252,11 +243,38 @@ button {
         border-radius: 10px;
     }
     
-    @font-face {
-        font-family: myFont;
-        src: url(../../my_fonts/Roboto-Light.ttf);
+    .Edit:hover{
+        box-shadow: 0 0 10px  #54ec99, 0 0 20px #54ec99, 0 0 30px #54ec99;
+        background-color: #54ec99;
+        transform: scale(1.1);
+        border-radius: 10px;
+        cursor: pointer;
     }
     
+    .Logout {
+        position: absolute;
+        bottom: 5%;
+        right: 35%;
+        font-size: 100%;
+    }
+    
+    .Logout button {
+        font-family: 'Carbo', serif;
+        font-weight: 200;
+        font-style: normal;
+        color: #ffffff;
+        box-shadow: 0 0 10px rgba(255, 0, 0, 0.9);
+        text-shadow: 0 0 20px rgba(63, 5, 3, 0.9);
+        border-radius: 10px;
+    }
+    
+    .Logout:hover{
+        box-shadow: 0 0 10px  #e25050, 0 0 20px #e25050, 0 0 30px #e25050;
+        background-color: #a71111;
+        transform: scale(1.1);
+        border-radius: 10px;
+        cursor: pointer;
+    }
     .Infos {
         position: absolute;
         top: 40%;
