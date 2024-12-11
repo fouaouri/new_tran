@@ -83,6 +83,30 @@ function GameContent(){
 }
 
 function SettingContent(){
+    fetch('http://localhost:8000/api/user/', {
+        method: 'GET',
+        credentials: 'include',
+    })
+    .then(response => {
+        if (!response.ok) {
+            throw new Error("Network response was not ok");
+        }
+        return response.json();
+    })
+    .then(data => {
+
+        console.log(data.image_link);
+        const profileImg = document.getElementById('profile');
+        profileImg.src = data.image_link;
+        document.getElementById("fullName").textContent = data.full_name || "N/A";
+        document.getElementById("userName").textContent = data.username || "N/A";
+        document.getElementById("Mail").textContent = data.email || "N/A";
+        document.getElementById("Avatar").textContent = data.avatar || "N/A";
+        document.getElementById("City").textContent = data.city || "N/A";
+    })
+    .catch(error => {
+        console.error("There was a problem fetching the data:", error);
+    });
     document.getElementById('Edit').addEventListener('click', (e) => {
         e.preventDefault();
         navigateTo('EditContent', '../Css/Edit.css',  '/Edit');
@@ -118,10 +142,12 @@ function EditContent(){
         // for (let [key, value] of dataForm.entries()) {
         //     console.log(`${key}: ${value}`);
         // }
-        console.log(dataForm.get('username'));
+        console.log(dataForm.get('City'));
+        console.log(dataForm.get('fullname'));
         const data = new URLSearchParams(dataForm);
-        fetch('http://localhost:8000/api/user/', {
+        fetch('http://localhost:8000/api/update_user/', {
             method : 'POST',
+            credentials: 'include',
             headers: {
                 'Content-Type': 'application/x-www-form-urlencoded',
                 // 'X-CSRFToken': csrfToken, // Include CSRF token
@@ -141,6 +167,31 @@ function EditContent(){
     
 }
 
+function ProfileContent(){
+    fetch('http://localhost:8000/api/user/', {
+        method: 'GET',
+        credentials: 'include',
+    })
+    .then(response => {
+        if (!response.ok) {
+            throw new Error("Network response was not ok");
+        }
+        return response.json();
+    })
+    .then(data => {
+        console.log(data.image_link);
+        const profileImg = document.getElementById('profile');
+        profileImg.src = data.image_link;
+        document.getElementById("fullName").textContent = data.full_name || "N/A";
+        document.getElementById("userName").textContent = data.username || "N/A";
+        document.getElementById("Mail").textContent = data.email || "N/A";
+        document.getElementById("Avatar").textContent = data.avatar || "N/A";
+        document.getElementById("City").textContent = data.city || "N/A";
+    })
+    .catch(error => {
+        console.error("There was a problem fetching the data:", error);
+    });
+}
 function LoadContent(templateId){
     const template = document.getElementById(templateId);
     if (!template) {
@@ -170,6 +221,8 @@ function LoadContent(templateId){
         EditContent();
     if(templateId=== 'ChooseAi')
         Aigame();
+    if(templateId=== 'ProfileContent')
+        ProfileContent();
     if(templateId === 'firstContent'){
         
         document.getElementById('intra42-login-btn').addEventListener('click', function() {

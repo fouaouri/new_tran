@@ -74,7 +74,7 @@ body, html {
 .Edit {
     position: absolute;
     bottom: 5%;
-    left: 35%;
+    left: 30%;
     font-size: 100%;
 }
 
@@ -96,10 +96,35 @@ body, html {
     cursor: pointer;
 }
 
+.Delete {
+    position: absolute;
+    bottom: 5%;
+    right: 31%;
+    font-size: 100%;
+}
+
+.Delete button {
+    font-family: 'Carbo', serif;
+    font-weight: 200;
+    font-style: normal;
+    color: #ffffff;
+    box-shadow: 0 0 10px rgba(246, 255, 0, 0.9);
+    text-shadow: 0 0 20px rgba(152, 159, 2, 0.9);
+    border-radius: 10px;
+}
+
+.Delete:hover{
+    box-shadow: 0 0 10px  #e9ec54, 0 0 20px #ece954, 0 0 30px #daec54;
+    background-color: #d7d440;
+    transform: scale(1.1);
+    border-radius: 10px;
+    cursor: pointer;
+}
+
 .Logout {
     position: absolute;
     bottom: 5%;
-    right: 35%;
+    right: 46.5%;
     font-size: 100%;
 }
 
@@ -131,10 +156,22 @@ body, html {
 
 }
 
-
-.Infos h1 {
+h1 {
     color: #ffffff;
     font-size: 200%;
+    left: 10%;
+}
+
+fieldset{
+    height: 70%;
+    width: 180%;
+    border-radius: 10px;
+    box-shadow: 0 0 50px rgba(0, 255, 0, 0.90);
+}
+
+.Title{
+    font-size: 150%;
+    left: 5%;
 }
 
 .button-Profile {

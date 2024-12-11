@@ -73,9 +73,8 @@ body, html {
 
 .Done {
     position: absolute;
-    bottom: 5%;
-    right: 42%;
-    font-size: 100%;
+    left: 40%;
+    font-size: 120%;
 }
 
 .Done button {
@@ -83,12 +82,13 @@ body, html {
     font-weight: 200;
     font-style: normal;
     color: #ffffff;
-    background-color: rgba(15, 157, 53, 0.6);
     box-shadow: 0 0 10px rgba(0, 255, 0, 0.90);
+    text-shadow: 0 0 20px rgba(3, 63, 3, 0.9);
     border-radius: 10px;
 }
 
 .Done:hover{
+    color: #ffffff;
     box-shadow: 0 0 10px  #54ec99, 0 0 20px #54ec99, 0 0 30px #54ec99;
     background-color: #54ec99;
     transform: scale(1.1);
@@ -96,9 +96,10 @@ body, html {
     cursor: pointer;
 }
 
+
 .Infos {
     position: absolute;
-    top: 30%;
+    top: 40%;
     left: 10%;
     text-transform: uppercase;
     font-size: 70%;
@@ -106,17 +107,23 @@ body, html {
 
 }
 
-/* @font-face {
-    font-family: nameFont;
-    src: url(../../my_fonts/namefont.ttf);
-} */
+#profile-update{
+    color: #ffffff;
+    position: absolute;
+    box-shadow: 0 0 10px rgba(0, 255, 0, 0.90);
+    text-shadow: 0 0 20px rgba(3, 63, 3, 0.9);
+    border-radius: 10px;
+    top: 30%;
+    left: 36.6%;
+}
+
 
 .f_name {
-    margin-bottom: 10%;
+    margin-bottom: 7%;
     color: #f1f0f0;
     background-color: rgba(15, 157, 53, 0.3);
     font-size: 200%;
-    width: 100%;
+    width: 85%;
 }
 
 .Avatar {

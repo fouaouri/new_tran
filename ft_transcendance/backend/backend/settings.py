@@ -168,6 +168,7 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
+AUTH_USER_MODEL = 'back_end.User'
 
 # Internationalization
 # https://docs.djangoproject.com/en/4.2/topics/i18n/
@@ -198,4 +199,11 @@ CORS_ALLOW_CREDENTIALS = True  # Allow cookies/sessions to be sent
 CORS_ORIGIN_WHITELIST = [
     'http://localhost:8080', 
     "http://localhost:8001",
+]
+
+CORS_ALLOWED_ORIGINS = [
+    'http://localhost:8080',
+]
+CSRF_TRUSTED_ORIGINS = [
+    'http://localhost:8080',
 ]

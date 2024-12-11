@@ -19,6 +19,7 @@ from django.urls import path , include
 from back_end.views import *
 from back_end.utils.login_logout import *
 from back_end.utils.TwoFA import *
+from back_end.utils.set_csrf_token import *
 
 
 urlpatterns = [
@@ -30,4 +31,6 @@ urlpatterns = [
     path('accounts/42intra/login/callback/', callback_view.as_view(), name='intra42_callback'),
     path('logout/', logout_user),
     path('login/', login_user),
+    path('set-csrf/', set_csrf_token, name='set-csrf'),
+
 ]
