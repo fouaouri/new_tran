@@ -135,15 +135,21 @@ function EditContent(){
     const info = document.querySelector('.Infos');
 
     info.addEventListener("submit", event =>{
-        console.log(10000);
         event.preventDefault();
-
+        
         const dataForm = new FormData(info);
         // for (let [key, value] of dataForm.entries()) {
-        //     console.log(`${key}: ${value}`);
-        // }
-        console.log(dataForm.get('City'));
-        console.log(dataForm.get('fullname'));
+            //     console.log(`${key}: ${value}`);
+            // }
+        const imageInput = document.getElementById('profile-update');
+        const file = imageInput.files[0]; // Get the selected file
+            
+            // Add the file to FormData
+        if (file)
+            dataForm.append('image_link', file);
+        console.log(10000);
+        // console.log(dataForm.get('City'));
+        console.log( "image ::::" + dataForm.get('image_link'));
         const data = new URLSearchParams(dataForm);
         fetch('http://localhost:8000/api/update_user/', {
             method : 'POST',
@@ -219,9 +225,9 @@ function LoadContent(templateId){
         ChooseGame();
     if(templateId === 'EditContent')
         EditContent();
-    if(templateId=== 'ChooseAi')
+    if(templateId === 'ChooseAi')
         Aigame();
-    if(templateId=== 'ProfileContent')
+    if(templateId === 'ProfileContent')
         ProfileContent();
     if(templateId === 'firstContent'){
         
@@ -314,6 +320,7 @@ function checkUserLoginFromBackend() {
                 navigateTo('homeContent', '../Css/Home.css',  '/Home');
             });
             document.getElementById('profile').addEventListener('click', (e) => {
+                console.log("profiiiiiile");
                 e.preventDefault();
                 navigateTo('ProfileContent', '../Css/Profile.css',  '/Profile');
             });

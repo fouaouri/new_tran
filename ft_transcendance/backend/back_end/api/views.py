@@ -28,9 +28,10 @@ def check_login_status(request):
 # @api_view(['GET', 'POST'])
 def user(request):
     if request.user.is_authenticated:
+        print()
         return JsonResponse({'username': request.user.username,
                             'email':request.user.email,
-                            'image_link':'https://cdn.intra.42.fr/users/4426c2b633387be161ba254ca7025f46/fouaouri.JPG',
+                            'image_link':request.user.image_link,
                             'city':request.user.city,
                             'full_name':request.user.full_name})
     return JsonResponse({'username': '',
@@ -43,16 +44,28 @@ def user(request):
 def update_user(request):
     if request.method == "POST":
         new_username = request.POST['username']
+        new_email = request.POST['email']
+        new_image = request.POST['image_link']
+        new_city = request.POST['City']
         if new_username and new_username != request.user.username:
             if User.objects.filter(username=new_username).exists():
                 return JsonResponse({'error': 'Username already taken'}, status=404)
+        if new_email and new_email != request.user.email:
+            if User.objects.filter(image_link=new_email).exists():
+                return JsonResponse({'error': 'Email already taken'}, status=400)
     else:
         new_username = request.user.username
+        new_email = request.user.email
+        new_city = request.user.city
+        new_image = request.user.image_link
     if request.user.is_authenticated:
         print(new_username)
     if not request.user.is_authenticated:
         return JsonResponse({'error': 'User not authenticated'}, status = 404)
     request.user.username = new_username
+    request.user.email = new_email
+    request.user.city = new_city
+    request.user.image_link = new_image
     request.user.save()
     return JsonResponse({'message': 'User updated successfully', 'username': request.user.username})
 

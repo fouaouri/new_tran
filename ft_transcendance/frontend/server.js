@@ -6,7 +6,6 @@ const app = express();
 app.use(express.static(path.join(__dirname, 'Front-Files')));
 
 // Serve the main index.html file on the root route
-console.log(path.join(__dirname, 'Front-Files', 'HTML', 'front.html'));
 app.get('*', (req, res) => {
     res.sendFile(path.join(__dirname, 'Front-Files', 'HTML', 'front.html'));
   });
