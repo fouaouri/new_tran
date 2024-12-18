@@ -26,7 +26,8 @@ def login_user(request):
 def save_and_login_user(request, user_data):
     username = user_data.get('login')
     email = user_data.get('email')
-    image_link = user_data.get('url')
+    image_link = user_data.get('link')
+    print(image_link)
     city = user_data.get('city')
     full_name = user_data.get('usual_full_name')
     city = user_data.get('campus')[0].get('city')

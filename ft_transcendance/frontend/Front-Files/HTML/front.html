@@ -25,31 +25,68 @@
         </template>
         <template id="firstContent">
             <div class="rectangle">
-                <div class="Text-container">
-                    <h2>Sign in to your account</h2>
+                        <div class="top-header">
+                            <h3>Hello, Again!</h3>
+                            <small>We are happy to have you back.</small>
+                        </div>
+                        <form class="Info">
+                            <div class="input-group">
+                                <div class="input-field">
+                                    <input type="text" name="email" placeholder="Email" class="input-box" id="logEmail" required>
+                                </div>
+                                <div class="input-field">
+                                    <input type="password" name="password" placeholder="Password" class="input-box" id="logPassword" required>
+                                </div>
+                                </div>
+                                <div class="remember">
+                                    <input type="checkbox" id="formCheck" class="check">
+                                    <label for="formCheck">Remember Me</label>
+                                </div>
+                                <div class="input-field">
+                                    <input type="submit" class="input-submit" value="Sign In" required>
+                                </div>
+                                <p>Don't have an account? <button id="showRegister">Sign Up</button></p>
+                            </div>
+                        </form>
+                    </div>            
+             </div>
+        </template>
+        <template id="Regester">
+            <div class="rectangle">
+                <div class="top-header">
+                    <h3>Sign Up, Now!</h3>
+                    <small>We are happy to have you with us.</small>
                 </div>
-                <div class="Textt-container">
-                    <h2>Don't have an account?</h2>
-                </div>
-                <div class="Email-rectangle"></div>
-                <div class="button-Email">
-                    <input>Email</input>
-                </div>
-                <div class="Password-rectangle"></div>
-                <div class="button-Password">
-                    <input>Password</input>
-                </div>
-                <div class="button-Signin">
-                    <button>Sign in</button>
-                </div>
-                <div class="button-Github">
-                    <button>Sign up with Github</button>
-                </div>
-                <div class="button-42">
-                    <button id="intra42-login-btn">Login with 42 Intra</button>
-                </div>
-                <!-- <script src="../JS/first_page.js"> -->
-                </script>
+                <form class="Info">
+                    <div class="input-group">
+                        <div class="input-field">
+                            <input type="text" name="username" placeholder="Username" class="input-box" id="regUsername" required>
+                        </div>
+                        <div class="input-field">
+                            <input type="text" name="fullname" placeholder="Full Name" class="input-box" id="regFullname" required>
+                        </div>
+                        <div class="input-field">
+                            <input type="text" name="email" placeholder="Email" class="input-box" id="regEmail"  required>
+                        </div>
+                        <div class="input-field">
+                            <input type="text" name="City" placeholder="City" class="input-box" id="regCity"  required>
+                        </div>                   
+                        <div class="input-field">
+                            <input type="password" name="password" placeholder="Password" class="input-box" id="regPassword"  required>
+                        </div>
+                        <div class="remember">
+                            <input type="checkbox" id="formCheck2" class="check">
+                            <label for="formCheck2">Remember Me</label>
+                        </div>
+                        <div class="input-field">
+                            <input type="submit" class="input-submit" value="Sign Up" required>
+                        </div>
+                        <p>Already have an account? <button id="showLogin">Sign In</button></p>
+                        <div class="input-field1">
+                            <button id="intra42-login-btn">Login with 42 Intra</button>
+                        </div>
+                      </div>
+                </form>
             </div>
         </template>
         <template id="homeContent">

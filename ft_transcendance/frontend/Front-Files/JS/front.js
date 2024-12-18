@@ -229,12 +229,67 @@ function LoadContent(templateId){
         Aigame();
     if(templateId === 'ProfileContent')
         ProfileContent();
-    if(templateId === 'firstContent'){
-        
+    if(templateId === 'Regester'){
+        const info = document.querySelector('.Info');
+
+        info.addEventListener("submit", event =>{
+            console.log(10000);
+            event.preventDefault();
+
+            const dataForm = new FormData(info);
+            console.log(dataForm.get('City'));
+            console.log(dataForm.get('fullname'));
+            const data = new URLSearchParams(dataForm);
+            //URL should be replaced by the correct URL 
+            fetch('http://localhost:8000/api/update_user/', {
+                method : 'POST',
+                credentials: 'include',
+                headers: {
+                    'Content-Type': 'application/x-www-form-urlencoded',
+                },
+                body : data
+            }).then(res => res.json())
+            .then(data => console.log(data))
+            .catch(error => console.log(error));
+        });
+        document.getElementById('showLogin').addEventListener('click', (e) => {
+            e.preventDefault();
+            navigateTo('firstContent', '../Css/first_page.css',  '/LoginPage')
+        });
         document.getElementById('intra42-login-btn').addEventListener('click', function() {
             const intra42LoginUrl = "https://api.intra.42.fr/oauth/authorize?client_id=u-s4t2ud-9d2d8fa97dc6b65bd84be86acda526487543730f59841291ee8187f3970bac15&redirect_uri=http%3A%2F%2Flocalhost%3A8000%2Faccounts%2F42intra%2Flogin%2Fcallback%2F&response_type=code";
             window.location.href = intra42LoginUrl;
             templateId = 'dataContent';
+        });
+    }
+    if(templateId === 'firstContent'){
+        console.log('first');
+        const info = document.querySelector('.Info');
+
+        info.addEventListener("submit", event =>{
+            console.log(10000);
+            event.preventDefault();
+
+            const dataForm = new FormData(info);
+            console.log(dataForm.get('email'));
+            console.log(dataForm.get('password'));
+            const data = new URLSearchParams(dataForm);
+            //URL should be replaced by the correct URL 
+            fetch('http://localhost:8000/api/update_user/', {
+                method : 'POST',
+                credentials: 'include',
+                headers: {
+                    'Content-Type': 'application/x-www-form-urlencoded',
+                },
+                body : data
+            }).then(res => res.json())
+            .then(data => console.log(data))
+            .catch(error => console.log(error));
+        });
+        document.getElementById('showRegister').addEventListener('click', (e) => {
+            console.log('dkhel');
+            e.preventDefault();
+            navigateTo('Regester', '../Css/Regester.css',  '/Regester');
         });
     }
     if(templateId === 'tournoiContent')
